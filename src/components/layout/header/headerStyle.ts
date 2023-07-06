@@ -1,4 +1,4 @@
-import { keyframes, styled } from "styled-components";
+import { keyframes, styled, css } from "styled-components";
 import { NavLink } from 'react-router-dom';
 
 const rotate = keyframes`
@@ -9,28 +9,31 @@ const rotate = keyframes`
         transform: rotate(360deg);
     }
 `
-
-
-
 export const Navigation = styled.nav`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+    width:100%;
+    height: 300px;
+    /* display: flex;
+    justify-content: space-between; */
 `
-export const CogwheelContainer = styled.div`
-    position: relative;
-`
-export const LeftCogwheel = styled.img`
+// export const CogwheelContainer = styled.div`
+//     position: relative;
+//     width: 512px;
+//     height: 100%;
+// `
+const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
     position: absolute;
-    left: -10rem;
     top: -14rem;
+    animation: ${rotate} 5s linear infinite;
+    animation-play-state: paused;
+    ${props => props.$hovered && css`
+        animation-play-state: running;
+    `}
 `
-
-export const RightCogwheel = styled.img`
-    position: absolute;
+export const LeftCogwheel = styled(GlobalCogwheel)`
+    left: -10rem; 
+`
+export const RightCogwheel = styled(GlobalCogwheel)`
     right: -10rem;
-    top: -14rem;
-    
 `
 export const StyledNavLinkHome = styled(NavLink)`
     font-size: 2rem;
@@ -39,9 +42,6 @@ export const StyledNavLinkHome = styled(NavLink)`
     position: absolute;
     left: 2rem;
     top: 2rem;
-    &:hover ${LeftCogwheel} {
-        animation: ${rotate} 3s linear infinite;
-    }
 `
 export const StyledNavLinkProject = styled(NavLink)`
     font-size: 2rem;

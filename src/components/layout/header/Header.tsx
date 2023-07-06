@@ -1,28 +1,51 @@
+import { useState } from "react";
 import {
     Navigation,
     LeftCogwheel,
     RightCogwheel,
     StyledNavLinkHome,
-    CogwheelContainer,
     StyledNavLinkProject
 } from "./headerStyle"
 
 function Header() {
+    const [isHovered, setIsHovered] = useState({ right: false, left: false });
+
+    const handleMouseEnter = (side: string) => {
+        setIsHovered(prevState => ({ ...prevState, [side]: true }));
+    };
+
+    const handleMouseLeave = (side: string) => {
+        setIsHovered(prevState => ({ ...prevState, [side]: false }));
+    };
+
     return (
         <Navigation>
-            <CogwheelContainer>
-                <LeftCogwheel src="\assets\png\cogwheel.png" alt="Accueil" />
-                <StyledNavLinkHome to='/'>
-                    ACCUEIL
-                </StyledNavLinkHome>
-            </CogwheelContainer>
+            <LeftCogwheel
+                $hovered={isHovered.left}
+                src="\assets\png\cogwheel.png"
+                alt="Accueil"
+            />
+            <StyledNavLinkHome
+                onMouseEnter={() => handleMouseEnter('left')}
+                onMouseLeave={() => handleMouseLeave('left')}
+                to='/'
+            >
+                ACCUEIL
+            </StyledNavLinkHome>
 
-            <CogwheelContainer>
-                <RightCogwheel src="\assets\png\cogwheel.png" alt="Accueil" />
-                <StyledNavLinkProject to='/projects'>
-                    PROJETS
-                </StyledNavLinkProject>
-            </CogwheelContainer>
+            <RightCogwheel
+                $hovered={isHovered.right}
+                src="\assets\png\cogwheel.png"
+                alt="Accueil"
+            />
+            <StyledNavLinkProject
+                onMouseEnter={() => handleMouseEnter('right')}
+                onMouseLeave={() => handleMouseLeave('right')}
+                to='/projects'
+            >
+                PROJETS
+            </StyledNavLinkProject>
+
         </Navigation>
     )
 }
