@@ -22,7 +22,7 @@ function Header() {
         <Navigation>
             <LeftCogwheel
                 $hovered={isHovered.left}
-                src="\assets\png\cogwheel.png"
+                src="\assets\png\cogwheel_shadow.png"
                 alt="Accueil"
             />
             <StyledNavLinkHome
@@ -35,7 +35,7 @@ function Header() {
 
             <RightCogwheel
                 $hovered={isHovered.right}
-                src="\assets\png\cogwheel.png"
+                src="\assets\png\cogwheel_shadow.png"
                 alt="Accueil"
             />
             <StyledNavLinkProject

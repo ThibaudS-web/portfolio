@@ -1,6 +1,7 @@
 import { keyframes, styled, css } from "styled-components";
 import { NavLink } from 'react-router-dom';
 
+
 const rotate = keyframes`
     0% {
         transform: rotate(0deg);
@@ -21,13 +22,22 @@ export const Navigation = styled.nav`
 //     height: 100%;
 // `
 const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
+    width: 512px;
     position: absolute;
     top: -14rem;
+    transform-origin: center;
     animation: ${rotate} 5s linear infinite;
     animation-play-state: paused;
     ${props => props.$hovered && css`
         animation-play-state: running;
     `}
+`
+const NavLinkCustomGlobal = css`
+    font-family: "Bebas Neue";
+    font-size: 2.5rem;
+    color: #000;
+    text-decoration: none;
+    position: absolute;
 `
 export const LeftCogwheel = styled(GlobalCogwheel)`
     left: -10rem; 
@@ -35,24 +45,16 @@ export const LeftCogwheel = styled(GlobalCogwheel)`
 export const RightCogwheel = styled(GlobalCogwheel)`
     right: -10rem;
 `
+
 export const StyledNavLinkHome = styled(NavLink)`
-    font-size: 2rem;
-    color: #000;
-    text-decoration: none;
-    position: absolute;
-    left: 2rem;
+    ${NavLinkCustomGlobal}
+    left: 2.7rem;
     top: 2rem;
 `
 export const StyledNavLinkProject = styled(NavLink)`
-    font-size: 2rem;
-    color: #000;
-    text-decoration: none;
-    position: absolute;
-    right: 2rem;
+    ${NavLinkCustomGlobal}
+    right: 2.7rem;
     top: 2rem;
-    &:hover {
-        transform: rotate(1turn)
-    }
 `
 
 

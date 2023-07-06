@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: #F5F5F5;
   }
+  @font-face {
+      font-family: "Bebas Neue";
+      src: url("/assets/fonts/BebasNeue-Regular.ttf");
+  }
 `
 
 function App() {
