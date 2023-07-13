@@ -10,17 +10,6 @@ const rotate = keyframes`
         transform: rotate(360deg);
     }
 `
-export const Navigation = styled.nav`
-    width:100%;
-    height: 300px;
-    /* display: flex;
-    justify-content: space-between; */
-`
-// export const CogwheelContainer = styled.div`
-//     position: relative;
-//     width: 512px;
-//     height: 100%;
-// `
 const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
     width: 512px;
     position: absolute;
@@ -31,9 +20,23 @@ const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
     ${props => props.$hovered && css`
         animation-play-state: running;
     `}
+ 
 `
+export const Navigation = styled.nav`
+    width:100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    /* display: flex;
+    justify-content: space-between; */
+`
+// export const CogwheelContainer = styled.div`
+//     position: relative;
+//     width: 512px;
+//     height: 100%;
+// `
+
 const NavLinkCustomGlobal = css`
-    font-family: "Bebas Neue";
     font-size: 2.5rem;
     color: #000;
     text-decoration: none;
@@ -46,7 +49,7 @@ export const RightCogwheel = styled(GlobalCogwheel)`
     right: -10rem;
 `
 
-export const StyledNavLinkHome = styled(NavLink)`
+export const StyledNavLinkHome = styled(NavLink) <{ $hovered: boolean }>`
     ${NavLinkCustomGlobal}
     left: 2.7rem;
     top: 2rem;

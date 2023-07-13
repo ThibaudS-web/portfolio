@@ -5,13 +5,21 @@ import Projects from './pages/projects/Projects';
 import Layout from './components/layout/Layout';
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: #F5F5F5;
-  }
-  @font-face {
+  /* @font-face {
       font-family: "Bebas Neue";
       src: url("/assets/fonts/BebasNeue-Regular.ttf");
+      font-display: fallback;
+      font-style: normal;
+      font-weight: 400;
+  } */
+  body {
+    background-color: #F5F5F5;
+    font-family: "Bebas Neue";
   }
+  h1 {
+    margin: 0;
+  }
+
 `
 
 function App() {

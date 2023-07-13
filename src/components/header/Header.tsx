@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     Navigation,
     LeftCogwheel,
@@ -8,15 +8,15 @@ import {
 } from "./headerStyle"
 
 function Header() {
-    const [isHovered, setIsHovered] = useState({ right: false, left: false });
+    const [isHovered, setIsHovered] = useState({ right: false, left: false })
 
     const handleMouseEnter = (side: string) => {
-        setIsHovered(prevState => ({ ...prevState, [side]: true }));
-    };
+        setIsHovered(prevState => ({ ...prevState, [side]: true }))
+    }
 
     const handleMouseLeave = (side: string) => {
-        setIsHovered(prevState => ({ ...prevState, [side]: false }));
-    };
+        setIsHovered(prevState => ({ ...prevState, [side]: false }))
+    }
 
     return (
         <Navigation>
@@ -26,6 +26,7 @@ function Header() {
                 alt="Accueil"
             />
             <StyledNavLinkHome
+                $hovered={isHovered.left}
                 onMouseEnter={() => handleMouseEnter('left')}
                 onMouseLeave={() => handleMouseLeave('left')}
                 to='/'
