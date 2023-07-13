@@ -1,9 +1,11 @@
 import { styled, css } from "styled-components"
+import { motion } from "framer-motion"
 
 
 const Cogwheel = styled.img`
     position: absolute;
 `
+
 export const TitleContainer = styled.div`
     flex-grow: 0.9;
     border: 2px solid yellow;
@@ -11,26 +13,31 @@ export const TitleContainer = styled.div`
     align-items: center;
     overflow: hidden;
 `
+
 export const Title = styled.h1`
     letter-spacing: 0.1rem;
-    /* transition: transform 3s ease-in-out; */
-`;
+`
+
 export const AvatarOpenEyes = styled.img`
     width: 140px;
 `
-export const RedCogwheel = styled(Cogwheel)`
+
+export const RedCogwheel = motion(styled(Cogwheel)`
     width: 120px;
     right: 0;
-`
-export const GreyCogwheel = styled(Cogwheel)`
+    top:5;
+`)
+
+export const GreyCogwheel = motion(styled(Cogwheel)`    
     width: 140px;
-    bottom: 0;
-`
-export const YellowCogwheel = styled(Cogwheel)`
+    bottom: 0;  
+`)
+
+export const YellowCogwheel = motion(styled(Cogwheel)`
     width: 80px;
     bottom: 30px;
-    right: 21px;
-`
+    right: 18px;
+`)
 
 export const AnimatedTitleContainer = styled.div`
     width: 90%;
@@ -38,6 +45,7 @@ export const AnimatedTitleContainer = styled.div`
     display: flex;
     justify-content: space-between;
 `
+
 export const CogwheelsContainer = styled.div<{ $rotate?: boolean }>`
     width: 240px;
     height: 240px;
