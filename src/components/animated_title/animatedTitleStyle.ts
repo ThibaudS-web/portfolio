@@ -8,17 +8,18 @@ const Cogwheel = styled.img`
 
 export const TitleContainer = styled.div`
     flex-grow: 0.9;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     display: flex;
     align-items: center;
     overflow: hidden;
+    justify-content: space-around;
 `
 
 export const Title = styled.h1`
     letter-spacing: 0.1rem;
 `
 
-export const AvatarOpenEyes = styled.img`
+export const Avatar = styled.img`
     width: 140px;
 `
 
