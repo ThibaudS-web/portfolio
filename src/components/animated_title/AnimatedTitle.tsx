@@ -109,7 +109,6 @@ function AnimatedTitle(props: AnimatedHeadProps) {
     return (
         <>
             <AnimatedTitleContainer>
-
                 <CogwheelsContainer>
                     <GreyCogwheel
                         initial="initial"
@@ -136,7 +135,6 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
                 </CogwheelsContainer>
-
                 <TitleContainer>
                     <motion.div
                         initial="initial"
@@ -157,7 +155,6 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         <Avatar src={`${avatarPaths[currentIndexAvatar]}`} />
                     </motion.div>
                 </TitleContainer>
-
                 <CogwheelsContainer $rotate>
                     <GreyCogwheel
                         initial="initial"
@@ -184,9 +181,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         onAnimationComplete={() => handleChangeCogwheelVariants("right")}
                     />
                 </CogwheelsContainer>
-
             </AnimatedTitleContainer >
-
         </>
     )
 }

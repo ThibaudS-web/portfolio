@@ -14,12 +14,14 @@ const GlobalStyle = createGlobalStyle`
   } */
   body {
     background-color: #F5F5F5;
-    font-family: "Bebas Neue";
+    font-family:  "Bebas Neue", sans-serif;
   }
   h1 {
     margin: 0;
   }
-
+  p{
+    font-family: 'Inter', sans-serif;
+  }
 `
 
 function App() {
