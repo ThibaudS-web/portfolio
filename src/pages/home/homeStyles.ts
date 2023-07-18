@@ -12,7 +12,6 @@ export const TextInfo = styled.p`
     text-align: justify;
     padding: 2.5rem 7.5rem;
 `
-
 export const Button = styled.button`
     border: 3px solid black;
     height: 60px;
