@@ -1,4 +1,8 @@
+import { ReactElement, ReactNode } from "react";
+
+export type TextVariantUnionT = Array<string | ReactNode>
+
 export default interface AnimatedHeadProps {
-    textVariants: Array<String>,
-    avatarPaths: Array<String>
+    textVariants: TextVariantUnion,
+    avatarPaths: string[]
 }

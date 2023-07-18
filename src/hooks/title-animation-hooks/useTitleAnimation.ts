@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TextVariantUnionT } from "../../props";
 
 const useTitleAnimation = () => {
     const [currentIndexTitle, setCurrentIndexTitle] = useState(0)
@@ -11,15 +12,16 @@ const useTitleAnimation = () => {
         }
     })
 
-    const handleSetCurrentIndexTitle = (textVariants: Array<String>) => {
+
+    const handleSetCurrentIndexTitle = (textVariants: TextVariantUnionT) => {
         setCurrentIndexTitle((prevIndex) => {
             const nextIndex = prevIndex + 1;
-            if (nextIndex === textVariants.length) return 0
+            if (nextIndex === textVariants?.length) return 0
             return nextIndex
         })
     }
 
-    const handleChangeTitleVariants = (textVariants: Array<String>) => {
+    const handleChangeTitleVariants = (textVariants: TextVariantUnionT) => {
         if (titleVariants.initial.x === "0%") handleSetCurrentIndexTitle(textVariants)
 
         setTitleVariants({
