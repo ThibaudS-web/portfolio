@@ -7,12 +7,11 @@ import {
     Link,
     SocialContainer,
     SocialLink,
-    TextInfo,
-    TextOnBtn
+    TextInfo
 } from "./homeStyles"
-import DownloadIcon from "../../components/svg/DownloadIcon"
 import GithubIcon from "../../components/svg/GithubIcon"
 import LinkedinIcon from "../../components/svg/LinkedinIcon"
+import DownloadButton from "../../components/DownloadButton"
 
 function Home() {
 
@@ -48,13 +47,7 @@ function Home() {
                                 CONTACTEZ MOI !
                             </Link>
                         </Button>
-                        <Button>
-                            <TextOnBtn>CV</TextOnBtn>
-                            <DownloadIcon
-                                width="25px"
-                                height="25px"
-                            />
-                        </Button>
+                        <DownloadButton />
                     </ButtonContainer>
                 </FooterLink>
             </BlocPage>

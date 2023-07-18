@@ -17,7 +17,10 @@ import useAvatarAnimation from "../../hooks/title-animation-hooks/useAvatarAnima
 function AnimatedTitle(props: AnimatedHeadProps) {
     const { textVariants, avatarPaths } = props
 
-    const transitionOptions = { duration: 3, delay: 1.5 }
+    const transitionOptions = {
+        duration: 3,
+        delay: 1.5,
+    }
 
     const {
         handleChangeCogwheelVariants,
