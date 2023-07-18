@@ -9,13 +9,15 @@ import {
     Avatar
 } from "./animatedTitleStyle"
 import { motion } from "framer-motion"
-import AnimatedHeadProps from "../../props";
-import useCogwheelAnimation from "../../hooks/title-animation-hooks/useCogwheelAnimation";
-import useTitleAnimation from "../../hooks/title-animation-hooks/useTitleAnimation";
-import useAvatarAnimation from "../../hooks/title-animation-hooks/useAvatarAnimation";
+import AnimatedHeadProps from "../../props"
+import useCogwheelAnimation from "../../hooks/title-animation-hooks/useCogwheelAnimation"
+import useTitleAnimation from "../../hooks/title-animation-hooks/useTitleAnimation"
+import useAvatarAnimation from "../../hooks/title-animation-hooks/useAvatarAnimation"
 
 function AnimatedTitle(props: AnimatedHeadProps) {
     const { textVariants, avatarPaths } = props
+
+    const transitionOptions = { duration: 3, delay: 1.5 }
 
     const {
         handleChangeCogwheelVariants,
@@ -35,7 +37,6 @@ function AnimatedTitle(props: AnimatedHeadProps) {
         currentIndexAvatar
     } = useAvatarAnimation()
 
-
     return (
         <>
             <AnimatedTitleContainer>
@@ -44,7 +45,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         initial="initial"
                         animate="animate"
                         variants={leftCohwheelVariant}
-                        transition={{ duration: 3, delay: 1.5 }}
+                        transition={transitionOptions}
                         src="\assets\png\cogwheelb_grey.png"
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
@@ -52,7 +53,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         initial="initial"
                         animate="animate"
                         variants={leftCohwheelVariant}
-                        transition={{ duration: 3, delay: 1.5 }}
+                        transition={transitionOptions}
                         src="\assets\png\cogwheelb_red.png"
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
@@ -60,7 +61,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         initial="initial"
                         animate="animate"
                         variants={leftCohwheelVariant}
-                        transition={{ duration: 3, delay: 1.5 }}
+                        transition={transitionOptions}
                         src="\assets\png\cogwheelb_yellow.png"
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
@@ -70,7 +71,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         initial="initial"
                         animate="animate"
                         variants={titleVariants}
-                        transition={{ duration: 3, delay: 1.5 }}
+                        transition={transitionOptions}
                         onAnimationComplete={() => handleChangeTitleVariants(textVariants)}
                     >
                         <Title>{textVariants[currentIndexTitle]}</Title>
@@ -79,7 +80,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         initial="initial"
                         animate="animate"
                         variants={avatarVariants}
-                        transition={{ duration: 3, delay: 1.5 }}
+                        transition={transitionOptions}
                         onAnimationComplete={() => handleChangeAvatarVariants(avatarPaths)}
                     >
                         <Avatar src={`${avatarPaths[currentIndexAvatar]}`} />
@@ -90,7 +91,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         initial="initial"
                         animate="animate"
                         variants={rightCogwheelVariant}
-                        transition={{ duration: 3, delay: 1.5 }}
+                        transition={transitionOptions}
                         src="\assets\png\cogwheelb_grey.png"
                         onAnimationComplete={() => handleChangeCogwheelVariants("right")}
                     />
@@ -98,7 +99,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         initial="initial"
                         animate="animate"
                         variants={rightCogwheelVariant}
-                        transition={{ duration: 3, delay: 1.5 }}
+                        transition={transitionOptions}
                         src="\assets\png\cogwheelb_red.png"
                         onAnimationComplete={() => handleChangeCogwheelVariants("right")}
                     />
@@ -106,7 +107,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         initial="initial"
                         animate="animate"
                         variants={rightCogwheelVariant}
-                        transition={{ duration: 3, delay: 1.5 }}
+                        transition={transitionOptions}
                         src="\assets\png\cogwheelb_yellow.png"
                         onAnimationComplete={() => handleChangeCogwheelVariants("right")}
                     />
