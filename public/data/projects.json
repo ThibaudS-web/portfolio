@@ -1,0 +1,93 @@
+[
+  {
+    "id": "1",
+    "name": "Jazzam",
+    "texte": "En tant que développeur junior passionné par la musique, j'ai créé cette application musicale interactive. La principale caractéristique sont les lecteurs audios personnalisés avec la possibilité d'avancer la lecture, passer au titre suivant / précédent, le changement de style musicale et l'intéraction entre les lecteurs.",
+    "github": "https://github.com/ThibaudS-web/music_sim",
+    "technos": [
+      "typescript",
+      "CSS"
+    ],
+    "live-server": "thibauds-web.github.io/music_sim/"
+  },
+  {
+    "id": "2",
+    "name": "Pogflix",
+    "texte": "Ce projet est un moteur de recherche de films qui utilise l'API OMDb. Les principales fonctionnalités sont le menu déroulant, la recherche de film par titre et l'affichage des détails du film",
+    "github": "https://github.com/ThibaudS-web/movies_app",
+    "technos": [
+      "typescript",
+      "CSS"
+    ],
+    "live-server": "https://thibauds-web.github.io/movies_app/"
+  },
+  {
+    "id": "3",
+    "name": "Fisheye",
+    "texte": "Développement front from scratch d'une plateform de photographe avec l'utilisation de class et de features comme un slider pour parcourir les photos d'un photographe, le tri de sa galerie par ordre alphabétique, de popularité et de date, la possibilité de like les photos, une formulaire de contact avec validation par regExp. Pour les design pattern j'utilise ici un factory pattern pour la création d'object picture / movie. Pour afficher les données sur le front j'utilise un fichier json pour mock la base de données et ainsi créer un service pour fetch la data.",
+    "github": "https://github.com/ThibaudS-web/Front-End-Fisheye",
+    "technos": [
+      "javascript",
+      "CSS"
+    ],
+    "live-server": "https://thibauds-web.github.io/Front-End-Fisheye/index.html"
+  },
+  {
+    "id": "4",
+    "name": "Les petits plats",
+    "texte": "Développement d'un algorithme de recherche. L'utilisateur a la possibilité de filtrer les recettes de la cuisine à l'aide d'une barre de recherche et de 3 filtres différents (Filtrer par ingrédients, appareils et ustensiles) avec la possibilité d'ajouts de tags. L'application a été split en deux branches git différentes. Une où j'utilise un algo avec des boucles natives, l'autre avec des méthodes de tableau pour définir la plus performante avec l'outil jsben.",
+    "github": "https://github.com/ThibaudS-web/P7_Search_algorithm",
+    "technos": [
+      "javascript",
+      "CSS"
+    ],
+    "live-server": "https://thibauds-web.github.io/P7_Search_algorithm/"
+  },
+  {
+    "id": "5",
+    "name": "Kasa",
+    "texte": "Développement de mon premier projet React avec React Router, une application de location de logements.",
+    "github": "https://github.com/ThibaudS-web/Site_Kasa",
+    "technos": [
+      "react",
+      "styled-component"
+    ],
+    "live-server": "https://site-kasa-thibauds-web.vercel.app/"
+  },
+  {
+    "id": "6",
+    "name": "Sportsee",
+    "texte": "Un dashboard pour sportif avec suivi des performances. Pour l'utilisation des graphiques j'ai utilisé Rechart.",
+    "github": "https://github.com/ThibaudS-web/board_analytics",
+    "technos": [
+      "react",
+      "styled-component"
+    ],
+    "live-server": "https://board-analytics-thibauds-web.vercel.app/profil/12/"
+  },
+  {
+    "id": "7",
+    "name": "Argent Bank",
+    "texte": "Un compte utilisateur d'application bancaire avec authentification à une API. Modélisation des données et utilisation de Redux. Lien du back dans le dépôt git pour tester l'authentification.",
+    "github": "https://github.com/ThibaudS-web/P13_argent_bank",
+    "technos": [
+      "react",
+      "styled-component",
+      "redux",
+      "typescript"
+    ],
+    "live-server": "https://p13-argent-bank-alpha.vercel.app/"
+  },
+  {
+    "id": "8",
+    "name": "Wealth Health",
+    "texte": "L'application propose un formulaire d'inscription pour gérer une liste d'employés avec une validation intégrée via un custom hook. Une page dédiée affiche tous les employés enregistrés et offre une fonctionnalité de tri facilitée par une barre de recherche intuitive. Pour améliorer l'expérience utilisateur, plusieurs librairies ont été utilisées, notamment react-datepicker, react-select, et tanstack/react-table. De plus, un plugin de modal personnalisé a été créé, accompagné de sa documentation détaillée pour une utilisation aisée (https://github.com/ThibaudS-web/thibaud_s-dev-react-modal-custom) Un bon coverage de tests a été rédigé pour l'application.",
+    "github": "https://github.com/ThibaudS-web/WealthHealth_Employee_Management",
+    "technos": [
+      "react",
+      "styled-component",
+      "typescript"
+    ],
+    "live-server": "https://wealth-health-employee-management.vercel.app/"
+  }
+]

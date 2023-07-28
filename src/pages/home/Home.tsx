@@ -14,12 +14,16 @@ import LinkedinIcon from "../../components/svg/LinkedinIcon"
 import DownloadButton from "../../components/DownloadButton"
 
 function Home() {
-
     return (
         <>
             <BlocPage>
                 <AnimatedTitle
-                    textVariants={["Bienvenue SUR MON PORTFOLIO !", "Moi c’est thibaud, enchanté !"]}
+                    textVariants={[
+                        "BIENVENUE SUR MON PORTFOLIO !",
+                        <span key="on-text">
+                            MOI C'EST <span style={{ color: "#F3A712" }}>THIBAUD</span> ENCHANTÉ !
+                        </span>
+                    ]}
                     avatarPaths={["\\assets\\png\\avatar_open_eyes.png",
                         "\\assets\\png\\avatar_wink.png"]}
                 />

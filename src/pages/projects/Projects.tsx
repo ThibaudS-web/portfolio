@@ -1,7 +1,11 @@
 import AnimatedTitle from "../../components/animated_title/AnimatedTitle"
+import useProjectsData from "../../hooks/useProjectsData"
 import { BlocPage } from "../home/homeStyles"
 
 function Projects() {
+    const { data } = useProjectsData()
+    console.log(data)
+    
     return (
         <>
             <BlocPage>
@@ -16,7 +20,6 @@ function Projects() {
                         "\\assets\\png\\avatar_wink.png"]}
                 />
             </BlocPage>
-
         </>
     )
 }
