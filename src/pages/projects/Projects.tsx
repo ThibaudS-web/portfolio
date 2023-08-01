@@ -5,7 +5,7 @@ import { BlocPage } from "../home/homeStyles"
 function Projects() {
     const { data } = useProjectsData()
     console.log(data)
-    
+
     return (
         <>
             <BlocPage>
@@ -16,8 +16,8 @@ function Projects() {
                             APPUYER SUR <span style={{ color: "#467536" }}>ON</span> POUR DEMARRER
                         </span>
                     ]}
-                    avatarPaths={["\\assets\\png\\avatar_open_eyes.png",
-                        "\\assets\\png\\avatar_wink.png"]}
+                    avatarPaths={["public/assets/png/avatar_open_eyes.png",
+                        "public/assets/png/avatar_wink.png"]}
                 />
             </BlocPage>
         </>
