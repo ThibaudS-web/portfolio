@@ -42,7 +42,7 @@ export const YellowCogwheel = motion(styled(Cogwheel)`
 `)
 
 export const AnimatedTitleContainer = styled.div`
-    width: 90%;
+    width: 100%;
     margin: auto;
     display: flex;
     justify-content: space-between;

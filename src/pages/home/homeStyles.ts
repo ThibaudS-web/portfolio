@@ -2,6 +2,7 @@ import { styled } from "styled-components"
 
 export const BlocPage = styled.div`
     /* border: 2px solid red; */
+    padding: 0 3rem;
     max-width: 1440px;
     margin: auto;
 `

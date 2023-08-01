@@ -24,8 +24,8 @@ function Home() {
                             MOI C'EST <span style={{ color: "#F3A712" }}>THIBAUD</span> ENCHANTÉ !
                         </span>
                     ]}
-                    avatarPaths={["public/assets/png/avatar_open_eyes.png",
-                        "public/assets/png/avatar_wink.png"]}
+                    avatarPaths={["assets/png/avatar_open_eyes.png",
+                        "assets/png/avatar_wink.png"]}
                 />
                 <TextInfo>
                     Hello world! Je suis un développeur front-end web junior enthousiaste par la création d'expériences interactives. Mon objectif est d'allier design et fonctionnalités pour offrir des sites web modernes et captivants. Je suis ouvert aux opportunités de collaboration. Parcourez mon portfolio pour découvrir mes projets et n'hésitez pas à me contacter pour discuter de vos idées ou simplement pour en apprendre plus sur moi. Merci de votre visite !
