@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion"
-import { useRef, useState } from "react"
+import { useState } from "react"
 import { Options, SelectOption, SelectContainer, Option } from "./selectStyle"
 import Arrow from "../svg/ArrowSelect"
 
