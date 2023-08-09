@@ -1,17 +1,19 @@
 import AnimatedTitle from "../../components/animated_title/AnimatedTitle"
 import {
     BlocPage,
-    Button,
     ButtonContainer,
     FooterLink,
-    Link,
     SocialContainer,
     SocialLink,
     TextInfo
 } from "./homeStyles"
 import GithubIcon from "../../components/svg/GithubIcon"
 import LinkedinIcon from "../../components/svg/LinkedinIcon"
-import DownloadButton from "../../components/DownloadButton"
+// import DownloadButton from "../../components/button/DownloadButton"
+import Button from "../../components/button/Button"
+import { TextOnBtn } from "../../components/button/buttonStyle"
+import DownloadIcon from "../../components/svg/DownloadIcon"
+import { handleDownload } from "../../utils/handleDownload"
 
 function Home() {
     return (
@@ -46,12 +48,13 @@ function Home() {
                         </SocialLink>
                     </SocialContainer>
                     <ButtonContainer>
-                        <Button>
-                            <Link href="mailto:thibaud.prodev@gmail.com">
-                                CONTACTEZ MOI !
-                            </Link>
+                        <Button homeBtn link="mailto:thibaud.prodev@gmail.com">
+                            CONTACTEZ MOI !
                         </Button>
-                        <DownloadButton />
+                        <Button homeBtn onClick={handleDownload}>
+                            <TextOnBtn>CV</TextOnBtn>
+                            <DownloadIcon width="25px" height="25px" />
+                        </Button>
                     </ButtonContainer>
                 </FooterLink>
             </BlocPage>

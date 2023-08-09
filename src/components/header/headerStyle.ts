@@ -20,44 +20,127 @@ const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
     ${props => props.$hovered && css`
         animation-play-state: running;
     `}
- 
+
+    @media (max-width: 1024px) {
+        width: 380px;
+        top: -10rem;
+    }
+    
+    @media (max-width: 768px) {
+        width: 300px;
+        top: -7rem;
+    }
+
+    @media (max-width: 425px) {
+        width: 250px;
+        top: -6rem;
+    }
+
+    @media (max-width: 320px) {
+        width: 220px;
+        top: -5.5rem;
+    }
 `
+export const LeftCogwheel = styled(GlobalCogwheel)`
+    left: -10rem; 
+
+    @media (max-width: 1024px) {
+        left: -8rem; 
+    }
+
+    @media (max-width: 768px) {
+        left: -7rem;
+    }
+
+    @media (max-width: 425px) {
+        left: -6rem;
+    }
+
+    @media (max-width: 320px) {
+        left: -5rem;
+    }
+`
+export const RightCogwheel = styled(GlobalCogwheel)`
+    right: -10rem;
+
+    @media (max-width: 1024px) {
+        right: -8rem;
+    }
+
+    @media (max-width: 768px) {
+        right: -7rem;
+    }
+
+    @media (max-width: 425px) {
+        right: -6rem;
+    }
+
+    @media (max-width: 320px) {
+        right: -5rem;
+    }
+`
+
 export const Navigation = styled.nav`
     width:100%;
     height: 300px;
-    overflow: hidden;
     position: relative;
-    /* display: flex;
-    justify-content: space-between; */
+    overflow: hidden;
+    @media (max-width: 1024px) {
+        height: 220px;
+    }
 `
-// export const CogwheelContainer = styled.div`
-//     position: relative;
-//     width: 512px;
-//     height: 100%;
-// `
+
 
 const NavLinkCustomGlobal = css`
     font-size: 2.5rem;
     color: #000;
     text-decoration: none;
     position: absolute;
+    top: 2rem;
+
+    @media (max-width: 1024px) {
+        font-size: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 1.6rem;
+    }
+
+    @media (max-width: 425px) {
+        font-size: 1.4rem;
+        top: 1.5rem;
+    }
+
+    @media (max-width: 320px) {
+        top: 1.3rem;
+        font-size: 1.2rem;
+    }
 `
-export const LeftCogwheel = styled(GlobalCogwheel)`
-    left: -10rem; 
-`
-export const RightCogwheel = styled(GlobalCogwheel)`
-    right: -10rem;
-`
+
 
 export const StyledNavLinkHome = styled(NavLink) <{ $hovered: boolean }>`
     ${NavLinkCustomGlobal}
     left: 2.7rem;
-    top: 2rem;
+
+    @media (max-width: 1024px) {
+         left: 1.8rem;
+    }
+    
+    @media (max-width: 768px) {
+         left: 0.6rem;
+    }
 `
 export const StyledNavLinkProject = styled(NavLink)`
     ${NavLinkCustomGlobal}
     right: 2.7rem;
-    top: 2rem;
+
+    @media (max-width: 1024px) {
+      right: 1.8rem;
+    }
+
+    @media (max-width: 768px) {
+        right: 0.6rem;
+    }
 `
 
 

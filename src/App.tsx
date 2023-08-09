@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: #F5F5F5;
     font-family:  "Bebas Neue", sans-serif;
   }
-  h1 {
+  h1, p {
     margin: 0;
   }
   p{

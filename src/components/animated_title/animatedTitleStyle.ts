@@ -18,27 +18,70 @@ export const TitleContainer = styled.div`
 export const Title = styled.h1`
     letter-spacing: 0.1rem;
     font-size: 2.5em;
+    @media (max-width: 1100px) {
+        font-size: 2em;
+    }
+    @media (max-width: 1024px) {
+        font-size: 1.6em;
+    }
 `
 
 export const Avatar = styled.img`
     width: 140px;
+    @media (max-width: 1100px) {
+        width: 120px;
+    }
+    @media (max-width: 1024px) {
+        width: 100px;
+    }
 `
-
-export const RedCogwheel = motion(styled(Cogwheel)`
-    width: 120px;
-    right: 0;
-    top:5;
-`)
 
 export const GreyCogwheel = motion(styled(Cogwheel)`    
     width: 140px;
     bottom: 0;  
+
+    @media (max-width: 1440px) {
+        width: 120px;
+        left: 20px;
+    }
+
+    @media (max-width: 1024px) {
+        width: 100px;
+        left: 50px;
+        bottom: 30px;  
+    }
+`)
+
+export const RedCogwheel = motion(styled(Cogwheel)`
+    width: 120px;
+    right: 0;
+    top: 5px;
+
+    @media (max-width: 1440px) {
+        width: 100px;
+        top: 40px;
+    }
+
+    @media (max-width: 1024px) {
+        width: 80px;
+        top: 50px;
+        right: 20px;
+    }
 `)
 
 export const YellowCogwheel = motion(styled(Cogwheel)`
     width: 80px;
     bottom: 30px;
     right: 18px;
+    @media (max-width: 1440px) {
+        width: 60px;
+        right: 25px;
+    }
+
+    @media (max-width: 1024px) {
+        width: 50px;
+        bottom: 50px;
+    }
 `)
 
 export const AnimatedTitleContainer = styled.div`

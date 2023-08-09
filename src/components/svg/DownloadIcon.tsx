@@ -1,10 +1,6 @@
 import { SVGProps } from "react";
 
-interface DownloadIconProps extends SVGProps<SVGSVGElement> {
-    fillColorHover?: string;
-}
-
-function DownloadIcon(props: DownloadIconProps) {
+function DownloadIcon(props: SVGProps<SVGSVGElement>) {
     const { ...svgProps } = props
 
     return (

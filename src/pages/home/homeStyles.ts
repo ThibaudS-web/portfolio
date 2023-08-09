@@ -5,43 +5,42 @@ export const BlocPage = styled.div`
     padding: 0 3rem;
     max-width: 1440px;
     margin: auto;
+    @media (max-width: 1024px) {
+        padding: 0 1.5rem;
+    }
 `
 export const TextInfo = styled.p`
-    margin-top: 4rem;
+    margin: 4rem 0;
     font-size: 1.8rem;   
     line-height: 3.5rem;
     text-align: justify;
-    padding: 2.5rem 7.5rem;
-`
-export const Button = styled.button`
-    border: 3px solid black;
-    height: 60px;
-    border-radius: 1.1rem;
-    font-size: 2rem;
-    text-align: center;
-    padding: 0 2.3rem;
-    box-shadow: 0px 2px 4px 2px rgba(0,0,0,0.41);
+    padding: 0 7.5rem;
 
-    cursor: pointer;
-
-    &:hover{
-        background-color: #F3A712;
-        color: #ffffff;
-        fill: #ffffff;
+    @media (max-width: 1440px) {
+        padding: 2rem 5.5rem;
+        margin: 2rem 0; 
     }
-`
-export const TextOnBtn = styled.span`
-    margin-right: 0.3em;
+
+    @media (max-width: 1024px) {
+        padding: 0 4rem;
+        font-size: 1.4rem; 
+        line-height: 3rem;
+        margin: 2rem 0;
+    }
 `
 export const FooterLink = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 7.5rem;
-`
-export const Link = styled.a`
-    text-decoration: none;
-    color: unset;
+
+    @media (max-width: 1440px) {
+        padding: 0 5.5rem;    
+    }
+
+    @media (max-width: 1024px) {
+        padding: 0 4rem;
+    }
 `
 export const SocialLink = styled.a`
     &:hover{

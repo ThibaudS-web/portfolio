@@ -9,7 +9,7 @@ import {
     Avatar
 } from "./animatedTitleStyle"
 import { motion } from "framer-motion"
-import AnimatedHeadProps from "../../props"
+import { AnimatedHeadProps } from "../../props"
 import useCogwheelAnimation from "../../hooks/title-animation-hooks/useCogwheelAnimation"
 import useTitleAnimation from "../../hooks/title-animation-hooks/useTitleAnimation"
 import useAvatarAnimation from "../../hooks/title-animation-hooks/useAvatarAnimation"

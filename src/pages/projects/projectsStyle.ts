@@ -25,13 +25,18 @@ export const ProjectContainer = styled.div`
     width: 100%;
     display: flex;
     margin-top: 2.5rem;
+    gap: 2rem;
+    font-size: 1.2rem;
 `
 export const ProjectImgContainer = styled.div`
     width: 450px;
+    min-width: 300px;
+    height: 300px;
     cursor: pointer;
     border-radius: 10px;
     position: relative;
     font-family: "inter";
+    flex-shrink: 0;
 
      &::after {
         content: "Cliquer pour aggrandir";
@@ -49,15 +54,36 @@ export const ProjectImgContainer = styled.div`
         background-color: black;
     }
 
-    &:hover {
-        &::after {
-            opacity: 0.5;
-        }
+    &:hover&::after {  
+        opacity: 0.7;
     }
 `
-
+export const ProjectInfos = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 300px;
+`
 export const ProjectImg = styled.img`
+    object-fit: cover;
     border-radius: 10px;
     width: 100%;
     height: 100%;
+`
+export const ProjectTechno = styled.img`
+    width: 50px;
+    height: 50px;
+`
+export const ProjectTechnosContainer = styled.div`
+    display: flex;
+    gap: 15px;
+`
+export const ProjectDesc = styled.p`
+    text-align: justify;
+    width: 80%;
+    line-height: 1.8rem;
+`
+export const ButtonContainer = styled.div`
+    display: flex;
+    gap: 5%;
 `
