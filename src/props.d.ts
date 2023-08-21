@@ -5,7 +5,7 @@ export type TextVariant = Array<ReactNode>
 export interface AnimatedHeadProps {
     textVariants: TextVariant,
     avatarPaths: Array<String>
-}
+} 
 
 export interface ButtonProps {
     link?: string,

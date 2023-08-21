@@ -88,6 +88,10 @@ export const Navigation = styled.nav`
     @media (max-width: 1024px) {
         height: 220px;
     }
+
+    @media (max-width: 425px) {
+        height: 160px;
+    }
 `
 
 

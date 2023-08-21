@@ -8,6 +8,9 @@ export const BlocPage = styled.div`
     @media (max-width: 1024px) {
         padding: 0 1.5rem;
     }
+    @media (max-width: 850px) {
+        padding: 0;
+    }
 `
 export const TextInfo = styled.p`
     margin: 4rem 0;
@@ -25,7 +28,17 @@ export const TextInfo = styled.p`
         padding: 0 4rem;
         font-size: 1.4rem; 
         line-height: 3rem;
-        margin: 2rem 0;
+    }
+
+    @media (max-width: 850px) {
+        padding: 0 2rem;
+    }
+
+    @media (max-width: 500px) {
+        padding: 0 1rem;
+        font-size: 1rem; 
+        line-height: 2rem;
+        margin: 1rem 0; 
     }
 `
 export const FooterLink = styled.div`
@@ -33,13 +46,25 @@ export const FooterLink = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0 7.5rem;
-
-    @media (max-width: 1440px) {
-        padding: 0 5.5rem;    
-    }
+    margin-bottom: 1rem;
 
     @media (max-width: 1024px) {
         padding: 0 4rem;
+    }
+
+    @media (max-width: 850px) {
+        padding: 0 2rem;
+    }
+
+    @media (max-width: 540px) {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: unset;
+    }
+
+    @media (max-width: 500px) {
+        padding: 0 1rem;
+        margin: 2rem 0    
     }
 `
 export const SocialLink = styled.a`
@@ -50,8 +75,30 @@ export const SocialLink = styled.a`
 export const SocialContainer = styled.div`
     display: flex;
     gap: 4rem;
+
+    @media (max-width: 650px) {
+        gap: 2rem;        
+    }
+
+    @media (max-width: 425px) {
+        align-self: center;       
+    }
 `
 export const ButtonContainer = styled.div`
     display: flex;
-    gap: 4rem;
+    gap: 4em;
+
+    @media (max-width: 650px) {
+        gap: 2rem;        
+    }
+
+    @media (max-width: 540px) {
+        gap: 1rem;        
+    }
+
+    
+    @media (max-width: 425px) {
+        align-self: center;       
+    }
 `
+

@@ -28,6 +28,22 @@ export const Btn = styled.button<{ $homeBtn: boolean }>`
         font-size: ${(props) => props.$homeBtn ? "1.7rem" : "1.3rem"};
         padding: ${(props) => props.$homeBtn ? "0 2rem" : "0 1rem"};
     }
+
+    @media (max-width: 768px) {
+        font-size: ${(props) => props.$homeBtn ? "1.4rem" : "1.3rem"};
+        padding: ${(props) => props.$homeBtn ? "0 2rem" : "0 1rem"};
+    }
+
+    @media (max-width: 500px) {
+        font-size: ${(props) => props.$homeBtn ? "1.2rem" : "1.1rem"};
+        padding: ${(props) => props.$homeBtn ? "0 2rem" : "0 1rem"};
+        height: 40px;
+        box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.41);
+    }
+
+    @media (max-width: 350px) {
+        padding: ${(props) => props.$homeBtn ? "0 1rem" : "0 0.5rem"};
+    }
 `
 export const TextOnBtn = styled.span`
     margin-right: 0.3em;

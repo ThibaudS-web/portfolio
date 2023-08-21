@@ -14,7 +14,7 @@ import {
     ButtonContainer
 } from "./projectsStyle"
 import Button from "../../components/button/Button"
-import GithubIcon from "../../components/svg/GithubIcon"
+import GithubIcon from "../../components/svg/github-icon/GithubIcon"
 import { TextOnBtn } from "../../components/button/buttonStyle"
 
 function Projects() {

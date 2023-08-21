@@ -1,14 +1,16 @@
 import {
     AnimatedTitleContainer,
     CogwheelsContainer,
-    GreyCogwheel,
-    RedCogwheel,
+    RightGreyCogwheel,
+    RightRedCogwheel,
     TitleContainer,
-    YellowCogwheel,
+    RightYellowCogwheel,
     Title,
-    Avatar
+    Avatar,
+    LeftGreyCogwheel,
+    LeftRedCogwheel,
+    LeftYellowCogwheel,
 } from "./animatedTitleStyle"
-import { motion } from "framer-motion"
 import { AnimatedHeadProps } from "../../props"
 import useCogwheelAnimation from "../../hooks/title-animation-hooks/useCogwheelAnimation"
 import useTitleAnimation from "../../hooks/title-animation-hooks/useTitleAnimation"
@@ -44,7 +46,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
         <>
             <AnimatedTitleContainer>
                 <CogwheelsContainer>
-                    <GreyCogwheel
+                    <LeftGreyCogwheel
                         initial="initial"
                         animate="animate"
                         variants={leftCohwheelVariant}
@@ -52,7 +54,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         src="\assets\png\cogwheelb_grey.png"
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
-                    <RedCogwheel
+                    <LeftRedCogwheel
                         initial="initial"
                         animate="animate"
                         variants={leftCohwheelVariant}
@@ -60,7 +62,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         src="\assets\png\cogwheelb_red.png"
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
-                    <YellowCogwheel
+                    <LeftYellowCogwheel
                         initial="initial"
                         animate="animate"
                         variants={leftCohwheelVariant}
@@ -70,27 +72,26 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                     />
                 </CogwheelsContainer>
                 <TitleContainer>
-                    <motion.div
+                    <Title
                         initial="initial"
                         animate="animate"
                         variants={titleVariants}
                         transition={transitionOptions}
                         onAnimationComplete={() => handleChangeTitleVariants(textVariants)}
                     >
-                        <Title>{textVariants[currentIndexTitle]}</Title>
-                    </motion.div>
-                    <motion.div
+                        {textVariants[currentIndexTitle]}
+                    </Title>
+                    <Avatar
                         initial="initial"
                         animate="animate"
                         variants={avatarVariants}
                         transition={transitionOptions}
                         onAnimationComplete={() => handleChangeAvatarVariants(avatarPaths)}
-                    >
-                        <Avatar src={`${avatarPaths[currentIndexAvatar]}`} />
-                    </motion.div>
+                        src={`${avatarPaths[currentIndexAvatar]}`}
+                    />
                 </TitleContainer>
-                <CogwheelsContainer $rotate>
-                    <GreyCogwheel
+                <CogwheelsContainer>
+                    <RightGreyCogwheel
                         initial="initial"
                         animate="animate"
                         variants={rightCogwheelVariant}
@@ -98,7 +99,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         src="\assets\png\cogwheelb_grey.png"
                         onAnimationComplete={() => handleChangeCogwheelVariants("right")}
                     />
-                    <RedCogwheel
+                    <RightRedCogwheel
                         initial="initial"
                         animate="animate"
                         variants={rightCogwheelVariant}
@@ -106,7 +107,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         src="\assets\png\cogwheelb_red.png"
                         onAnimationComplete={() => handleChangeCogwheelVariants("right")}
                     />
-                    <YellowCogwheel
+                    <RightYellowCogwheel
                         initial="initial"
                         animate="animate"
                         variants={rightCogwheelVariant}

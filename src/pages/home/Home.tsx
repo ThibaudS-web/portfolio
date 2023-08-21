@@ -7,12 +7,11 @@ import {
     SocialLink,
     TextInfo
 } from "./homeStyles"
-import GithubIcon from "../../components/svg/GithubIcon"
-import LinkedinIcon from "../../components/svg/LinkedinIcon"
-// import DownloadButton from "../../components/button/DownloadButton"
+import GithubIcon from "../../components/svg/github-icon/GithubIcon"
+import LinkedinIcon from "../../components/svg/linkedin-icon/LinkedinIcon"
 import Button from "../../components/button/Button"
 import { TextOnBtn } from "../../components/button/buttonStyle"
-import DownloadIcon from "../../components/svg/DownloadIcon"
+import DownloadIcon from "../../components/svg/download-icon/DownloadIcon"
 import { handleDownload } from "../../utils/handleDownload"
 
 function Home() {
@@ -21,13 +20,21 @@ function Home() {
             <BlocPage>
                 <AnimatedTitle
                     textVariants={[
-                        "BIENVENUE SUR MON PORTFOLIO !",
                         <span key="on-text">
-                            MOI C'EST <span style={{ color: "#F3A712" }}>THIBAUD</span> ENCHANTÉ !
+                            Moi c'est <span style={{ color: "#F3A712" }}>
+                                Thibaud
+                            </span>, enchanté !
+                        </span>,
+                        <span key="on-text">
+                            <span style={{ color: "#F3A712" }}>
+                                Bienvenue
+                            </span> Sur mon portfolio !
                         </span>
                     ]}
-                    avatarPaths={["assets/png/avatar_open_eyes.png",
-                        "assets/png/avatar_wink.png"]}
+                    avatarPaths={[
+                        "assets/png/avatar_open_eyes.png",
+                        "assets/png/avatar_wink.png"
+                    ]}
                 />
                 <TextInfo>
                     Hello world! Je suis un développeur front-end web junior enthousiaste par la création d'expériences interactives. Mon objectif est d'allier design et fonctionnalités pour offrir des sites web modernes et captivants. Je suis ouvert aux opportunités de collaboration. Parcourez mon portfolio pour découvrir mes projets et n'hésitez pas à me contacter pour discuter de vos idées ou simplement pour en apprendre plus sur moi. Merci de votre visite !
@@ -53,7 +60,7 @@ function Home() {
                         </Button>
                         <Button homeBtn onClick={handleDownload}>
                             <TextOnBtn>CV</TextOnBtn>
-                            <DownloadIcon width="25px" height="25px" />
+                            <DownloadIcon />
                         </Button>
                     </ButtonContainer>
                 </FooterLink>
