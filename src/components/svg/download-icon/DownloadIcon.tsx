@@ -22,4 +22,4 @@ function DownloadIcon(props: SVGProps<SVGSVGElement>) {
     )
 }
 
-export default DownloadIcon;
+export default DownloadIcon

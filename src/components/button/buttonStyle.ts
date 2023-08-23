@@ -9,7 +9,7 @@ export const Link = styled.a`
 `
 export const Btn = styled.button<{ $homeBtn: boolean }>`
     border: 3px solid black;
-    height: ${(props) => props.$homeBtn ? "60px" : "40px"};
+    height: ${(props) => props.$homeBtn ? "60px" : "50px"};
     border-radius: 1.1rem;
     font-size: ${(props) => props.$homeBtn ? "2rem" : "1.3rem"};
     text-align: center;

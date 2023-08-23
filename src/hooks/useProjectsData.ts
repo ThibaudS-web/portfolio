@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
+import { Projects } from '../props';
 
 const useProjectsData = () => {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState<null | Projects>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<Error | null>(null)
 
@@ -19,7 +20,7 @@ const useProjectsData = () => {
                 setError(err as Error)
                 setLoading(false)
             }
-        };
+        }
 
         fetchData()
     }, [])

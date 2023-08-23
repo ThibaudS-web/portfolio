@@ -1,6 +1,7 @@
 import { SVGProps } from "react";
 import { SVG } from "./linkedinIconStyle";
 
+
 function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
     return (
         <SVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" {...props}>
@@ -9,4 +10,4 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
     )
 }
 
-export default LinkedinIcon;
+export default LinkedinIcon

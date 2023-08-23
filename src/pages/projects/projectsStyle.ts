@@ -11,6 +11,7 @@ export const FullProjectTitle = styled.h1`
         content: "";
         display: inline-block; 
         width: 45%;
+        min-width: 300px;
         height: 3px;
         background-color: #000000;
         position: absolute;
@@ -21,12 +22,11 @@ export const FullProjectTitle = styled.h1`
 export const ProjectTitle = styled.span`
     color: #F3A712;
 `
-export const ProjectContainer = styled.div`
+export const ProjectHeader = styled.div`
     width: 100%;
     display: flex;
     margin-top: 2.5rem;
     gap: 2rem;
-    font-size: 1.2rem;
 `
 export const ProjectImgContainer = styled.div`
     width: 450px;
@@ -61,7 +61,7 @@ export const ProjectImgContainer = styled.div`
 export const ProjectInfos = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between; 
     min-height: 300px;
 `
 export const ProjectImg = styled.img`
@@ -82,8 +82,11 @@ export const ProjectDesc = styled.p`
     text-align: justify;
     width: 80%;
     line-height: 1.8rem;
+    margin: 2rem 0;
+    font-size: 1.2rem;
 `
 export const ButtonContainer = styled.div`
     display: flex;
-    gap: 5%;
+    flex-direction: column;
+    gap: 2rem;
 `

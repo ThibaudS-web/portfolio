@@ -1,17 +1,5 @@
 import { styled } from "styled-components"
 
-export const BlocPage = styled.div`
-    /* border: 2px solid red; */
-    padding: 0 3rem;
-    max-width: 1440px;
-    margin: auto;
-    @media (max-width: 1024px) {
-        padding: 0 1.5rem;
-    }
-    @media (max-width: 850px) {
-        padding: 0;
-    }
-`
 export const TextInfo = styled.p`
     margin: 4rem 0;
     font-size: 1.8rem;   
@@ -47,6 +35,10 @@ export const FooterLink = styled.div`
     justify-content: space-between;
     padding: 0 7.5rem;
     margin-bottom: 1rem;
+    
+    @media (max-width: 1440px) {
+        padding: 0 5.5rem;
+    }
 
     @media (max-width: 1024px) {
         padding: 0 4rem;

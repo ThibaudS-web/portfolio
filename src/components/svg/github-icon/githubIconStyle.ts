@@ -1,7 +1,7 @@
 import { styled } from "styled-components"
 
-export const SVG = styled.svg`
-    width: 75px;
+export const SVG = styled.svg<{ $isProjectPage?: boolean }>`
+    width: ${(props) => props.$isProjectPage ? "35px" : "75px"};
     height: auto;
 
     @media (max-width: 768px) {

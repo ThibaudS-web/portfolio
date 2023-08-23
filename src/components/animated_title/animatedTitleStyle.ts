@@ -193,9 +193,9 @@ export const CogwheelsContainer = styled.div`
     /* border: 2px solid green; */
     position: relative;
 
-    @media (max-width: 1024px) {
-        width: 220px;
-        height: 220px;
+    @media (max-width: 1440px) {
+        width: 200px;
+        height: 200px;
     }
 
     @media (max-width: 850px) {

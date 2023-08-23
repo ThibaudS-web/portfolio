@@ -13,3 +13,15 @@ export interface ButtonProps {
     onClick?: () => void
     homeBtn?: boolean
 }
+
+export type Projects = Array<Project>
+
+export interface projects {
+    id: string, 
+    type: string,
+    name: string,
+    text: string, 
+    github: string, 
+    technos: Array<string>,
+    liveDemo: string
+}

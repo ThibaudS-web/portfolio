@@ -1,9 +1,13 @@
 import { SVGProps } from "react";
 import { SVG } from "./githubIconStyle";
 
-function GithubIcon(props: SVGProps<SVGSVGElement>) {
+interface GithubIconProps extends SVGProps<SVGSVGElement> {
+    $isProjectPage?: boolean;
+}
+
+function GithubIcon(props: GithubIconProps) {
     const { ...svgProps } = props
- 
+
     return (
         <SVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
             {...svgProps}>
@@ -13,4 +17,4 @@ function GithubIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 
-export default GithubIcon;
+export default GithubIcon

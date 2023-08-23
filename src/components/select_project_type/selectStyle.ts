@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export const SelectContainer = motion(styled.div`
     width: 350px;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
     font-family: "Inter";
     font-size: 1.2em;
     color: #F5F5F5;

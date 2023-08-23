@@ -79,7 +79,6 @@ export const RightCogwheel = styled(GlobalCogwheel)`
         right: -5rem;
     }
 `
-
 export const Navigation = styled.nav`
     width:100%;
     height: 300px;
@@ -93,8 +92,6 @@ export const Navigation = styled.nav`
         height: 160px;
     }
 `
-
-
 const NavLinkCustomGlobal = css`
     font-size: 2.5rem;
     color: #000;
@@ -120,8 +117,6 @@ const NavLinkCustomGlobal = css`
         font-size: 1.2rem;
     }
 `
-
-
 export const StyledNavLinkHome = styled(NavLink) <{ $hovered: boolean }>`
     ${NavLinkCustomGlobal}
     left: 2.7rem;
@@ -146,5 +141,3 @@ export const StyledNavLinkProject = styled(NavLink)`
         right: 0.6rem;
     }
 `
-
-
