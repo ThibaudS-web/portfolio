@@ -8,7 +8,8 @@ export const BlocPage = styled.main`
     @media (max-width: 1024px) {
         padding: 0 1.5rem;
     }
-    @media (max-width: 850px) {
+
+    @media (max-width: 425px) {
         padding: 0;
     }
 `

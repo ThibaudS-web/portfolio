@@ -19,7 +19,7 @@ export const TextInfo = styled.p`
     }
 
     @media (max-width: 850px) {
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
 
     @media (max-width: 500px) {
@@ -45,7 +45,7 @@ export const FooterLink = styled.div`
     }
 
     @media (max-width: 850px) {
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
 
     @media (max-width: 540px) {

@@ -42,6 +42,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
         currentIndexAvatar
     } = useAvatarAnimation()
 
+
     return (
         <>
             <AnimatedTitleContainer>

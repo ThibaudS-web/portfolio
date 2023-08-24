@@ -3,7 +3,9 @@ import { motion } from "framer-motion"
 
 
 export const SelectContainer = motion(styled.div`
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
+    min-width: 250px;
     margin-top: 3rem;
     font-family: "Inter";
     font-size: 1.2em;
@@ -11,6 +13,16 @@ export const SelectContainer = motion(styled.div`
     cursor: pointer;
     user-select: none;
     position: relative;
+
+    @media (max-width: 425px) {
+        margin: 2rem auto;
+        font-size: 1em;
+        width: 80%;
+    }
+
+    @media (max-width: 360px) {
+        margin: 1rem auto;
+    }
 `)
 
 export const SelectOption = motion(styled.div`
@@ -22,6 +34,15 @@ export const SelectOption = motion(styled.div`
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.75);
+
+    @media (max-width: 425px) {
+        padding: 0 2rem;
+        height: 40px;
+    }
+
+    @media (max-width: 360px) {
+        padding: 0 1rem;
+    }
 `)
 
 export const Options = styled.ul`
@@ -29,7 +50,7 @@ export const Options = styled.ul`
     margin-top: 10px;
     border-radius: 15px;
     box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.75);
-    padding:0;
+    padding: 0;
     background-color: #A22C29;
     position: absolute;
     z-index: 999;
@@ -52,5 +73,14 @@ export const Option = motion(styled.li`
     &:hover {
         color: #A22C29;
         background-color: white;
+    }
+
+    @media (max-width: 425px) {
+        padding: 0 2rem;
+        height: 40px;
+    }
+
+    @media (max-width: 360px) {
+        padding: 0 1rem;
     }
 `)

@@ -1,14 +1,20 @@
 import { styled } from "styled-components"
 import { motion } from "framer-motion"
 
-
 const Cogwheel = styled.img`
     position: absolute;
 `
 
+export const AnimatedTitleContainer = styled.div`
+    width: 100%;
+    /* margin: auto; */
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+`
+
 export const TitleContainer = styled.div`
     flex-grow: 1;
-    /* border: 2px solid yellow; */
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -72,11 +78,11 @@ export const Avatar = motion(styled.img`
     }
 
     @media (max-width: 500px) {
-          width: 60px;
+        width: 60px;
     }
 
-    @media (max-width: 350px) {
-        width: 40px;
+    @media (max-width: 375px) {
+        width: 45px;
     }
 `)
 
@@ -87,6 +93,8 @@ export const RightGreyCogwheel = motion(styled(Cogwheel)`
 
     @media (max-width: 425px) {  
         bottom: 10%;
+        width: 50%;
+        right: 5%;
     }
 
     @media (max-width: 375px) {  
@@ -136,6 +144,8 @@ export const LeftGreyCogwheel = motion(styled(Cogwheel)`
 
     @media (max-width: 425px) {  
         bottom: 10%;
+        width: 50%;
+        left: 5%
     }
 
     @media (max-width: 375px) {  
@@ -179,18 +189,9 @@ export const LeftYellowCogwheel = motion(styled(Cogwheel)`
     }
 `)
 
-export const AnimatedTitleContainer = styled.div`
-    width: 100%;
-    margin: auto;
-    display: flex;
-    gap: 5%;
-    justify-content: center;
-`
-
 export const CogwheelsContainer = styled.div`
-    width: 240px;
-    height: 240px;
-    /* border: 2px solid green; */
+    width: 220px;
+    height: 220px;
     position: relative;
 
     @media (max-width: 1440px) {

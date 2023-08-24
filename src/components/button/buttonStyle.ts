@@ -4,7 +4,7 @@ export const Link = styled.a`
     text-decoration: none;
     color: unset;
     display: flex;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
 `
 export const Btn = styled.button<{ $homeBtn: boolean }>`
@@ -13,7 +13,7 @@ export const Btn = styled.button<{ $homeBtn: boolean }>`
     border-radius: 1.1rem;
     font-size: ${(props) => props.$homeBtn ? "2rem" : "1.3rem"};
     text-align: center;
-    padding: ${(props) => props.$homeBtn ? "0 2.3rem" : "0 1rem"};
+    padding: 0 2rem;
     box-shadow: 0px 2px 4px 2px rgba(0,0,0,0.41);
     font-family: ${(props) => props.$homeBtn ? "Bebas Neue, sans-serif" : "Inter, sans-serif"};
     cursor: pointer;
@@ -31,7 +31,7 @@ export const Btn = styled.button<{ $homeBtn: boolean }>`
 
     @media (max-width: 768px) {
         font-size: ${(props) => props.$homeBtn ? "1.4rem" : "1.3rem"};
-        padding: ${(props) => props.$homeBtn ? "0 2rem" : "0 1rem"};
+        padding: ${(props) => props.$homeBtn ? "0 2rem" : "0 2rem"};
     }
 
     @media (max-width: 500px) {

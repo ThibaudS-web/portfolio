@@ -5,10 +5,10 @@ export const SVG = styled.svg<{ $isProjectPage?: boolean }>`
     height: auto;
 
     @media (max-width: 768px) {
-        width: 60px;
+        width: ${(props) => props.$isProjectPage ? "35px" : "60px"};
     }
 
     @media (max-width: 425px) {
-        width: 45px;
+        width: ${(props) => props.$isProjectPage ? "25px" : "45px"};
     }
 `;
