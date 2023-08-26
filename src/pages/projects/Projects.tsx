@@ -1,5 +1,4 @@
 import AnimatedTitle from "../../components/animated_title/AnimatedTitle"
-// import useProjectsData from "../../hooks/useProjectsData"
 import CustomSelect from "../../components/select_project_type/CustomSelect"
 import {
     FullProjectTitle,
@@ -22,19 +21,29 @@ import useProjectsData from "../../hooks/useProjectsData"
 import CogwheelCTA from "../../components/svg/cogwheel-cta/CogwheelCTA"
 import { useEffect, useState } from "react"
 import { Project } from "../../props"
+import handleCustomFilter from "../../utils/handleCustomFilter"
 
 function Projects() {
     const { data, loading, error } = useProjectsData()
+    const [dataFiltered, setDatafiltered] = useState<Array<Project> | null>(null)
     const [project, setProject] = useState<Project | null | undefined>(null)
+    const [selectedOption, setSelectedOption] = useState<string>("Trier les projets")
 
     useEffect(() => {
-        console.log(data, loading)
         if (data) {
             setProject(data[0])
         }
-        console.log(project)
-
     }, [data])
+
+    useEffect(() => {
+        console.log(selectedOption)
+        setDatafiltered(handleCustomFilter(data, selectedOption))
+    }, [data, selectedOption])
+
+    const handleSelectedOption = (selectedOption: string) => {
+        setSelectedOption(selectedOption)
+
+    }
 
     const findProjectById = (projectId: string | undefined) => {
         if (projectId) {
@@ -47,7 +56,8 @@ function Projects() {
         setProject(findProjectById(projectId))
     }
 
-    //TODO: handle title project number and add an icon for demo button
+    //TODO: Connect customSelect with cogwheelCTA
+    //TODO: Handle title project number and add an icon for demo button
     //TODO: Add animations for project view
 
     return (
@@ -56,16 +66,16 @@ function Projects() {
                 textVariants={[
                     "MES PROJETS",
                     <span key="on-text">
-                        sélectionne un projet avec les <span style={{ color: "#467536" }}>roues</span>
+                        sélectionnez un projet avec les <span style={{ color: "#467536" }}>roues</span>
                     </span>
                 ]}
                 avatarPaths={["assets/png/avatars/avatar_open_eyes.png",
                     "assets/png/avatars/avatar_wink.png"]}
             />
             <HandleProjectsContainer>
-                <CustomSelect />
+                <CustomSelect handleOption={handleSelectedOption} />
                 <CogwheelCTAContainer>
-                    {data?.map((project) => {
+                    {dataFiltered?.map((project) => {
                         return <CogwheelCTA onClick={(e) => {
                             handleSwapProject(e.currentTarget.dataset.projectid)
                         }} data-projectid={project.id} key={project.id} />

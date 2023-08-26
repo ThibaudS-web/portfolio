@@ -96,7 +96,7 @@
     "id": "8",
     "type": "formation",
     "name": "Wealth Health",
-    "text": "L'application propose un formulaire d'inscription pour gérer une liste d'employés avec une validation intégrée via un custom hook. Une page dédiée affiche tous les employés enregistrés et offre une fonctionnalité de tri facilitée par une barre de recherche intuitive. Pour améliorer l'expérience utilisateur, plusieurs librairies ont été utilisées, notamment react-datepicker, react-select, et tanstack/react-table. De plus, un plugin de modal personnalisé a été créé, accompagné de sa documentation détaillée pour une utilisation aisée (https://github.com/ThibaudS-web/thibaud_s-dev-react-modal-custom) Un bon coverage de tests a été rédigé pour l'application.",
+    "text": "L'application propose un formulaire d'inscription pour   gérer une liste d'employés avec une validation intégrée via un custom hook. Une page dédiée affiche tous les employés enregistrés et offre une fonctionnalité de tri facilitée par une barre de recherche intuitive. Pour améliorer l'expérience utilisateur, plusieurs librairies ont été utilisées, notamment react-datepicker, react-select, et tanstack/react-table. De plus, un plugin de modal personnalisé a été créé, accompagné de sa documentation détaillée pour une utilisation aisée (https://github.com/ThibaudS-web/thibaud_s-dev-react-modal-custom) Un bon coverage de tests a été rédigé pour l'application.",
     "github": "https://github.com/ThibaudS-web/WealthHealth_Employee_Management",
     "technos": [
       "react",

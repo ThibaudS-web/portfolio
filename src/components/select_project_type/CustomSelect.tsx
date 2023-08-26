@@ -3,18 +3,17 @@ import { useState } from "react"
 import { Options, SelectOption, SelectContainer, Option } from "./selectStyle"
 import Arrow from "../svg/ArrowSelect"
 
-function CustomSelect() {
+function CustomSelect(props: { handleOption: (option: string) => void }) {
+    const { handleOption } = props
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [selectedOption, setSelectedOption] = useState("Trier les projets")
 
-    const handleOpenSelect = () => {
-        setIsOpen(!isOpen)
-        setSelectedOption("Trier les projets")
-    }
-
     const handleSelectedOption = (option: string) => {
         setSelectedOption(option)
-        setIsOpen(false)
+        setIsOpen(!isOpen)
+        if (isOpen) {
+            handleOption(option)
+        }
     }
 
     const optionVariants: Variants = {
@@ -53,9 +52,8 @@ function CustomSelect() {
                 animate={isOpen ? "open" : "closed"}
             >
                 <SelectOption
-                    onClick={handleOpenSelect}
+                    onClick={() => handleSelectedOption("Trier les projets")}
                     whileTap={{ scale: 0.97 }}
-
                 >
                     {selectedOption}
                     <motion.div
