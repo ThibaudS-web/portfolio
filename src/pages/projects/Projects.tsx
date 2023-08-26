@@ -11,18 +11,44 @@ import {
     ProjectTechno,
     ProjectInfos,
     ButtonContainer,
-    ProjectImgLink
+    ProjectImgLink,
+    HandleProjectsContainer,
+    CogwheelCTAContainer
 } from "./projectsStyle"
 import Button from "../../components/button/Button"
 import GithubIcon from "../../components/svg/github-icon/GithubIcon"
 import { TextOnBtn } from "../../components/button/buttonStyle"
 import useProjectsData from "../../hooks/useProjectsData"
+import CogwheelCTA from "../../components/svg/cogwheel-cta/CogwheelCTA"
+import { useEffect, useState } from "react"
+import { Project } from "../../props"
 
 function Projects() {
+    const { data, loading, error } = useProjectsData()
+    const [project, setProject] = useState<Project | null | undefined>(null)
 
-    const { data } = useProjectsData()
-    console.log(data)
-    // TODO: Go to implement text option on props CustomSelect
+    useEffect(() => {
+        console.log(data, loading)
+        if (data) {
+            setProject(data[0])
+        }
+        console.log(project)
+
+    }, [data])
+
+    const findProjectById = (projectId: string | undefined) => {
+        if (projectId) {
+            console.log(data?.find(pro => pro.id == projectId))
+            return data?.find(pro => pro.id == projectId)
+        }
+    }
+
+    const handleSwapProject = (projectId: string | undefined) => {
+        setProject(findProjectById(projectId))
+    }
+
+    //TODO: handle title project number and add an icon for demo button
+    //TODO: Add animations for project view
 
     return (
         <>
@@ -30,23 +56,31 @@ function Projects() {
                 textVariants={[
                     "MES PROJETS",
                     <span key="on-text">
-                        sélectionne avec les <span style={{ color: "#467536" }}>roues</span>
+                        sélectionne un projet avec les <span style={{ color: "#467536" }}>roues</span>
                     </span>
                 ]}
-                avatarPaths={["assets/png/avatar_open_eyes.png",
-                    "assets/png/avatar_wink.png"]}
+                avatarPaths={["assets/png/avatars/avatar_open_eyes.png",
+                    "assets/png/avatars/avatar_wink.png"]}
             />
-            <CustomSelect />
+            <HandleProjectsContainer>
+                <CustomSelect />
+                <CogwheelCTAContainer>
+                    {data?.map((project) => {
+                        return <CogwheelCTA onClick={(e) => {
+                            handleSwapProject(e.currentTarget.dataset.projectid)
+                        }} data-projectid={project.id} key={project.id} />
+                    })}
+                </CogwheelCTAContainer>
+            </HandleProjectsContainer>
             <FullProjectTitle>
-                01. <ProjectTitle>Jazzam - music app</ProjectTitle>
+                01. <ProjectTitle>{project?.name}</ProjectTitle>
             </FullProjectTitle>
             <ProjectHeader>
                 <ProjectImgLink
-                    href="https://thibauds-web.github.io/music_sim/" target="blank"
+                    href={project?.liveDemo} target="blank"
                 >
-                    <ProjectImg src="assets/png/jazzam_pic.png" />
+                    <ProjectImg src={project?.imagePath} />
                 </ProjectImgLink>
-
                 <ProjectInfos>
                     <ProjectTechnosContainer>
                         {/* need to map here */}
@@ -55,13 +89,13 @@ function Projects() {
                     </ProjectTechnosContainer>
                     <ButtonContainer>
                         <Button
-                            link="https://github.com/ThibaudS-web/music_sim"
+                            link={project?.github}
                         >
                             <GithubIcon $isProjectPage />
                             <TextOnBtn>Code</TextOnBtn>
                         </Button>
                         <Button
-                            link="https://thibauds-web.github.io/music_sim/"
+                            link={project?.liveDemo}
                         >
                             <GithubIcon $isProjectPage />
                             <TextOnBtn>Demo</TextOnBtn>
@@ -70,7 +104,7 @@ function Projects() {
                 </ProjectInfos>
             </ProjectHeader >
             <ProjectDesc>
-                En tant que développeur junior passionné par la musique, j'ai créé cette application musicale interactive. La principale caractéristique sont les lecteurs audios personnalisés avec la possibilité d'avancer la lecture, passer au titre suivant / précédent, le changement de style musicale et l'intéraction entre les lecteurs.
+                {project?.text}
             </ProjectDesc>
         </>
     )

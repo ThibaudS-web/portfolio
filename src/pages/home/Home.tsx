@@ -30,8 +30,8 @@ function Home() {
                     </span>
                 ]}
                 avatarPaths={[
-                    "assets/png/avatar_open_eyes.png",
-                    "assets/png/avatar_wink.png"
+                    "assets/png/avatars/avatar_open_eyes.png",
+                    "assets/png/avatars/avatar_wink.png"
                 ]}
             />
             <TextInfo>

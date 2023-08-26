@@ -9,7 +9,8 @@
       "typescript",
       "CSS"
     ],
-    "liveDemo": "https://thibauds-web.github.io/music_sim/"
+    "liveDemo": "https://thibauds-web.github.io/music_sim/",
+    "imagePath": "assets/png/project-pictures/jazzam.png"
   },
   {
     "id": "2",
@@ -21,7 +22,8 @@
       "typescript",
       "CSS"
     ],
-    "liveDemo": "https://thibauds-web.github.io/movies_app/"
+    "liveDemo": "https://thibauds-web.github.io/movies_app/",
+    "imagePath": "assets/png/project-pictures/pogflix.png"
   },
   {
     "id": "3",
@@ -33,7 +35,8 @@
       "javascript",
       "CSS"
     ],
-    "liveDemo": "https://thibauds-web.github.io/Front-End-Fisheye/index.html"
+    "liveDemo": "https://thibauds-web.github.io/Front-End-Fisheye/index.html",
+    "imagePath": "assets/png/project-pictures/fisheye.png"
   },
   {
     "id": "4",
@@ -45,7 +48,8 @@
       "javascript",
       "CSS"
     ],
-    "liveDemo": "https://thibauds-web.github.io/P7_Search_algorithm/"
+    "liveDemo": "https://thibauds-web.github.io/P7_Search_algorithm/",
+    "imagePath": "assets/png/project-pictures/les_petits_plats.png"
   },
   {
     "id": "5",
@@ -57,7 +61,8 @@
       "react",
       "styled-component"
     ],
-    "liveDemo": "https://site-kasa-thibauds-web.vercel.app/"
+    "liveDemo": "https://site-kasa-thibauds-web.vercel.app/",
+    "imagePath": "assets/png/project-pictures/kasa.png"
   },
   {
     "id": "6",
@@ -69,7 +74,8 @@
       "react",
       "styled-component"
     ],
-    "liveDemo": "https://board-analytics-thibauds-web.vercel.app/profil/12/"
+    "liveDemo": "https://board-analytics-thibauds-web.vercel.app/profil/12/",
+    "imagePath": "assets/png/project-pictures/sportsee.png"
   },
   {
     "id": "7",
@@ -83,7 +89,8 @@
       "redux",
       "typescript"
     ],
-    "liveDemo": "https://p13-argent-bank-alpha.vercel.app/"
+    "liveDemo": "https://p13-argent-bank-alpha.vercel.app/",
+    "imagePath": "assets/png/project-pictures/argent_bank.png"
   },
   {
     "id": "8",
@@ -96,6 +103,7 @@
       "styled-component",
       "typescript"
     ],
-    "liveDemo": "https://wealth-health-employee-management.vercel.app/"
+    "liveDemo": "https://wealth-health-employee-management.vercel.app/",
+    "imagePath": "assets/png/project-pictures/hrnet.png"
   }
 ]

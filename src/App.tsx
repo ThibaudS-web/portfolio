@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: #F5F5F5;
     font-family:  "Bebas Neue", sans-serif;
+    user-select: none;
   }
 
   h1, p {

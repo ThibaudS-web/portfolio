@@ -16,12 +16,13 @@ export interface ButtonProps {
 
 export type Projects = Array<Project>
 
-export interface projects {
+export interface Project {
     id: string, 
     type: string,
     name: string,
     text: string, 
     github: string, 
     technos: Array<string>,
-    liveDemo: string
+    liveDemo: string,
+    imagePath: string
 }

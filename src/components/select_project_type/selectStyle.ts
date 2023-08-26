@@ -6,22 +6,17 @@ export const SelectContainer = motion(styled.div`
     width: 100%;
     max-width: 350px;
     min-width: 250px;
-    margin-top: 3rem;
     font-family: "Inter";
     font-size: 1.2em;
     color: #F5F5F5;
     cursor: pointer;
-    user-select: none;
     position: relative;
 
     @media (max-width: 425px) {
-        margin: 2rem auto;
+        margin: 1rem 0;
         font-size: 1em;
         width: 80%;
-    }
-
-    @media (max-width: 360px) {
-        margin: 1rem auto;
+        align-self: baseline;
     }
 `)
 

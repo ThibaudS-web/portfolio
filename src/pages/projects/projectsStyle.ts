@@ -1,5 +1,41 @@
-import { styled } from "styled-components"
+import { keyframes, styled } from "styled-components"
 
+const rotate = keyframes`
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+`
+export const HandleProjectsContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 5vw;
+    flex-wrap: wrap;
+
+    @media (max-width: 425px) {
+        padding: 0 1rem;
+        flex-direction: column;
+        margin: 0;
+        gap: unset;
+        justify-content: center;
+    }
+`
+export const CogwheelCTAContainer = styled.div`
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    
+    svg:first-child {
+        animation: ${rotate} 4s linear infinite;
+    } 
+
+    svg:first-child g{
+        fill: #A22C29;
+    }
+`
 export const FullProjectTitle = styled.h1`
     font-family: "inter";
     font-size: 1.5rem;
@@ -67,6 +103,7 @@ export const ProjectImgLink = styled.a`
     width: 450px;
     min-width: 260px;
     min-height: 250px;
+    max-height: 350px;
     cursor: pointer;
     border-radius: 10px;
     position: relative;
@@ -115,17 +152,12 @@ export const ProjectInfos = styled.div`
         width: 100%;
     }
 `
-
 export const ProjectImg = styled.img`
     object-fit: cover;
     border-radius: 10px;
     width: 100%;
     height: 100%;
-
-    @media (max-width: 768px) {
-        object-position: top;
-    }
-
+    object-position: top;   
 `
 export const ProjectTechno = styled.img`
     width: 50px;
