@@ -26,34 +26,35 @@ import handleCustomFilter from "../../utils/handleCustomFilter"
 function Projects() {
     const { data, loading, error } = useProjectsData()
     const [dataFiltered, setDatafiltered] = useState<Array<Project> | null>(null)
-    const [project, setProject] = useState<Project | null | undefined>(null)
+    const [currentProject, setCurrentProject] = useState<Project | null>(null)
     const [selectedOption, setSelectedOption] = useState<string>("Trier les projets")
-
+    
     useEffect(() => {
         if (data) {
-            setProject(data[0])
+            setCurrentProject(data[0])
         }
     }, [data])
 
     useEffect(() => {
-        console.log(selectedOption)
-        setDatafiltered(handleCustomFilter(data, selectedOption))
-    }, [data, selectedOption])
+        const filteredDataByOption = handleCustomFilter(data, selectedOption) || [];
+        setDatafiltered(filteredDataByOption);
+        filteredDataByOption && setCurrentProject(filteredDataByOption[0])
+    }, [data, selectedOption]);
 
     const handleSelectedOption = (selectedOption: string) => {
         setSelectedOption(selectedOption)
-
     }
 
-    const findProjectById = (projectId: string | undefined) => {
-        if (projectId) {
-            console.log(data?.find(pro => pro.id == projectId))
-            return data?.find(pro => pro.id == projectId)
-        }
+    const findProjectById = (projectId: string) => {
+        const filteredProjects = data?.filter((project) => project.id === projectId) || []
+        return filteredProjects.length > 0 ? filteredProjects[0] : null
     }
+
 
     const handleSwapProject = (projectId: string | undefined) => {
-        setProject(findProjectById(projectId))
+        if (projectId) {
+            setCurrentProject(findProjectById(projectId))
+        }
     }
 
     //TODO: Connect customSelect with cogwheelCTA
@@ -83,13 +84,13 @@ function Projects() {
                 </CogwheelCTAContainer>
             </HandleProjectsContainer>
             <FullProjectTitle>
-                01. <ProjectTitle>{project?.name}</ProjectTitle>
+                01. <ProjectTitle>{currentProject?.name}</ProjectTitle>
             </FullProjectTitle>
             <ProjectHeader>
                 <ProjectImgLink
-                    href={project?.liveDemo} target="blank"
+                    href={currentProject?.liveDemo} target="blank"
                 >
-                    <ProjectImg src={project?.imagePath} />
+                    <ProjectImg src={currentProject?.imagePath} />
                 </ProjectImgLink>
                 <ProjectInfos>
                     <ProjectTechnosContainer>
@@ -99,13 +100,13 @@ function Projects() {
                     </ProjectTechnosContainer>
                     <ButtonContainer>
                         <Button
-                            link={project?.github}
+                            link={currentProject?.github}
                         >
                             <GithubIcon $isProjectPage />
                             <TextOnBtn>Code</TextOnBtn>
                         </Button>
                         <Button
-                            link={project?.liveDemo}
+                            link={currentProject?.liveDemo}
                         >
                             <GithubIcon $isProjectPage />
                             <TextOnBtn>Demo</TextOnBtn>
@@ -114,7 +115,7 @@ function Projects() {
                 </ProjectInfos>
             </ProjectHeader >
             <ProjectDesc>
-                {project?.text}
+                {currentProject?.text}
             </ProjectDesc>
         </>
     )
