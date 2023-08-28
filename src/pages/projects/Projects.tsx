@@ -25,21 +25,22 @@ import handleCustomFilter from "../../utils/handleCustomFilter"
 
 function Projects() {
     const { data, loading, error } = useProjectsData()
-    const [dataFiltered, setDatafiltered] = useState<Array<Project> | null>(null)
+    const [dataFiltered, setDatafiltered] = useState<Array<Project>>([])
     const [currentProject, setCurrentProject] = useState<Project | null>(null)
+    const [currentProjectNumber, setCurrentProjectNumber] = useState<string>("")
     const [selectedOption, setSelectedOption] = useState<string>("Trier les projets")
-    
-    useEffect(() => {
-        if (data) {
-            setCurrentProject(data[0])
-        }
-    }, [data])
 
     useEffect(() => {
-        const filteredDataByOption = handleCustomFilter(data, selectedOption) || [];
-        setDatafiltered(filteredDataByOption);
-        filteredDataByOption && setCurrentProject(filteredDataByOption[0])
-    }, [data, selectedOption]);
+        const filteredDataByOption = handleCustomFilter(data, selectedOption) || []
+        setDatafiltered(filteredDataByOption)
+        console.log(filteredDataByOption)
+        console.log('Mount, useEffect !')
+
+        if (filteredDataByOption.length > 0) {
+            setCurrentProject(filteredDataByOption[0])
+            setCurrentProjectNumber("01.")
+        }
+    }, [data, selectedOption])
 
     const handleSelectedOption = (selectedOption: string) => {
         setSelectedOption(selectedOption)
@@ -50,16 +51,16 @@ function Projects() {
         return filteredProjects.length > 0 ? filteredProjects[0] : null
     }
 
-
-    const handleSwapProject = (projectId: string | undefined) => {
-        if (projectId) {
+    const handleSwapCurrentProject = (projectId: string | undefined, position: string | undefined) => {
+        if (projectId && position) {
             setCurrentProject(findProjectById(projectId))
+            setCurrentProjectNumber(displayPositionNumber(position))
         }
     }
 
-    //TODO: Connect customSelect with cogwheelCTA
-    //TODO: Handle title project number and add an icon for demo button
-    //TODO: Add animations for project view
+    const displayPositionNumber = (position: string) => {
+        return `0${parseInt(position) + 1}.`
+    }
 
     return (
         <>
@@ -76,15 +77,15 @@ function Projects() {
             <HandleProjectsContainer>
                 <CustomSelect handleOption={handleSelectedOption} />
                 <CogwheelCTAContainer>
-                    {dataFiltered?.map((project) => {
+                    {dataFiltered?.map((project, index) => {
                         return <CogwheelCTA onClick={(e) => {
-                            handleSwapProject(e.currentTarget.dataset.projectid)
-                        }} data-projectid={project.id} key={project.id} />
+                            handleSwapCurrentProject(e.currentTarget.dataset.projectid, e.currentTarget.dataset.index)
+                        }} data-projectid={project.id} key={project.id} data-index={index} />
                     })}
                 </CogwheelCTAContainer>
             </HandleProjectsContainer>
             <FullProjectTitle>
-                01. <ProjectTitle>{currentProject?.name}</ProjectTitle>
+                {currentProjectNumber} <ProjectTitle>{currentProject?.name}</ProjectTitle>
             </FullProjectTitle>
             <ProjectHeader>
                 <ProjectImgLink
