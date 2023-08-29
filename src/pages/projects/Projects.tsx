@@ -29,19 +29,23 @@ function Projects() {
     const [currentProject, setCurrentProject] = useState<Project | null>(null)
     const [currentProjectNumber, setCurrentProjectNumber] = useState<string>("")
     const [selectedOption, setSelectedOption] = useState<string>("Trier les projets")
+    const [activeCogwheelStates, setActiveCogwheelStates] = useState<Array<boolean>>([])
+
 
     useEffect(() => {
         const filteredDataByOption = handleCustomFilter(data, selectedOption) || []
         setDatafiltered(filteredDataByOption)
-        console.log(filteredDataByOption)
-        console.log('Mount, useEffect !')
 
         if (filteredDataByOption.length > 0) {
+            const initialActiveStates = new Array(filteredDataByOption.length).fill(false)
+            initialActiveStates[0] = true
+            setActiveCogwheelStates(initialActiveStates)
             setCurrentProject(filteredDataByOption[0])
-            setCurrentProjectNumber("01.")
+            setCurrentProjectNumber(displayPositionNumber("0"))
         }
     }, [data, selectedOption])
 
+    console.log(activeCogwheelStates)
     const handleSelectedOption = (selectedOption: string) => {
         setSelectedOption(selectedOption)
     }
@@ -51,15 +55,15 @@ function Projects() {
         return filteredProjects.length > 0 ? filteredProjects[0] : null
     }
 
-    const handleSwapCurrentProject = (projectId: string | undefined, position: string | undefined) => {
-        if (projectId && position) {
+    const handleSwapCurrentProject = (projectId: string | undefined, index: string | undefined) => {
+        if (projectId && index) {
             setCurrentProject(findProjectById(projectId))
-            setCurrentProjectNumber(displayPositionNumber(position))
+            setCurrentProjectNumber(displayPositionNumber(index))
         }
     }
 
-    const displayPositionNumber = (position: string) => {
-        return `0${parseInt(position) + 1}.`
+    const displayPositionNumber = (index: string) => {
+        return `0${parseInt(index) + 1}.`
     }
 
     return (
@@ -78,9 +82,15 @@ function Projects() {
                 <CustomSelect handleOption={handleSelectedOption} />
                 <CogwheelCTAContainer>
                     {dataFiltered?.map((project, index) => {
-                        return <CogwheelCTA onClick={(e) => {
-                            handleSwapCurrentProject(e.currentTarget.dataset.projectid, e.currentTarget.dataset.index)
-                        }} data-projectid={project.id} key={project.id} data-index={index} />
+                        return <CogwheelCTA
+                            $isActive={activeCogwheelStates[index]}
+                            onClick={() => {
+                                const newActiveStates = activeCogwheelStates.map((_state, i) => i === index)
+                                setActiveCogwheelStates(newActiveStates)
+                                handleSwapCurrentProject(project.id, index.toString())
+                            }}
+                            key={project.id}
+                        />
                     })}
                 </CogwheelCTAContainer>
             </HandleProjectsContainer>

@@ -28,13 +28,13 @@ export const CogwheelCTAContainer = styled.div`
     gap: 1rem;
     flex-wrap: wrap;
     
-    svg:first-child {
+    /* svg:first-child {
         animation: ${rotate} 4s linear infinite;
     } 
 
     svg:first-child g{
         fill: #A22C29;
-    }
+    } */
 `
 export const FullProjectTitle = styled.h1`
     font-family: "inter";
