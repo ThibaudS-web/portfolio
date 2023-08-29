@@ -119,7 +119,7 @@ const NavLinkCustomGlobal = css`
 `
 export const StyledNavLinkHome = styled(NavLink) <{ $hovered: boolean }>`
     ${NavLinkCustomGlobal}
-    left: 2.7rem;
+    left: 2.8rem;
 
     @media (max-width: 1024px) {
          left: 1.8rem;
@@ -131,7 +131,7 @@ export const StyledNavLinkHome = styled(NavLink) <{ $hovered: boolean }>`
 `
 export const StyledNavLinkProject = styled(NavLink)`
     ${NavLinkCustomGlobal}
-    right: 2.7rem;
+    right: 2.8rem;
 
     @media (max-width: 1024px) {
       right: 1.8rem;

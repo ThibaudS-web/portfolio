@@ -10,7 +10,6 @@ const rotate = keyframes`
 `
 export const HandleProjectsContainer = styled.div`
     display: flex;
-    align-items: center;
     margin-top: 3rem;
     gap: 5vw;
     flex-wrap: wrap;
@@ -72,6 +71,7 @@ export const FullProjectTitle = styled.h1`
     @media (max-width: 425px) {
         font-size: 1.2rem;
         padding-left: 2rem;
+        margin-top: 1rem;
     }
         
     @media (max-width: 320px) {
