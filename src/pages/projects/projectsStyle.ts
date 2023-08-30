@@ -1,13 +1,6 @@
-import { keyframes, styled } from "styled-components"
+import { motion } from "framer-motion"
+import { styled } from "styled-components"
 
-const rotate = keyframes`
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-`
 export const HandleProjectsContainer = styled.div`
     display: flex;
     margin-top: 3rem;
@@ -26,14 +19,6 @@ export const CogwheelCTAContainer = styled.div`
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    
-    /* svg:first-child {
-        animation: ${rotate} 4s linear infinite;
-    } 
-
-    svg:first-child g{
-        fill: #A22C29;
-    } */
 `
 export const FullProjectTitle = styled.h1`
     font-family: "inter";
@@ -102,8 +87,8 @@ export const ProjectHeader = styled.div`
 export const ProjectImgLink = styled.a`
     width: 450px;
     min-width: 260px;
-    min-height: 250px;
-    max-height: 350px;
+    min-height: 210px;   
+    height: 350px;
     cursor: pointer;
     border-radius: 10px;
     position: relative;
@@ -135,12 +120,12 @@ export const ProjectImgLink = styled.a`
 
     @media (max-width: 768px) {
         width: 100%;
-        min-height: 210px;
         max-height: 300px;
     }
 
     @media (max-width: 425px) {
         width: 85%;
+        max-height: 220px;
     }
 `
 export const ProjectInfos = styled.div`
@@ -160,8 +145,13 @@ export const ProjectImg = styled.img`
     object-position: top;   
 `
 export const ProjectTechno = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
+
+    @media (max-width: 768px) {
+        width: 50px;
+        height: 50px;
+    }
 `
 export const ProjectTechnosContainer = styled.div`
     display: flex;
@@ -169,10 +159,12 @@ export const ProjectTechnosContainer = styled.div`
     gap: 1.5rem;
 
     @media (max-width: 425px) {
-        margin: auto;
+        gap: 1rem;
+        justify-content: flex-start;
+        padding: 0 1rem;
     }
 `
-export const ProjectDesc = styled.p`
+export const ProjectDesc = motion(styled.p`
     text-align: justify;
     width: 100%;
     line-height: 1.8rem;
@@ -190,7 +182,7 @@ export const ProjectDesc = styled.p`
         font-size: 1rem;
         line-height: 2rem;
     }
-`
+`)
 export const ButtonContainer = styled.div`
     display: flex;
     flex-direction: column;

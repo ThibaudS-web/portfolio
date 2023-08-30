@@ -30,6 +30,7 @@ function Projects() {
     const [currentProjectNumber, setCurrentProjectNumber] = useState<string>("")
     const [selectedOption, setSelectedOption] = useState<string>("Trier les projets")
     const [activeCogwheelStates, setActiveCogwheelStates] = useState<Array<boolean>>([])
+    const [textOpacity, setTextOpacity] = useState(0)
 
 
     useEffect(() => {
@@ -42,6 +43,7 @@ function Projects() {
             setActiveCogwheelStates(initialActiveStates)
             setCurrentProject(filteredDataByOption[0])
             setCurrentProjectNumber(displayPositionNumber("0"))
+            setTextOpacity(1)
         }
     }, [data, selectedOption])
 
@@ -59,6 +61,7 @@ function Projects() {
         if (projectId && index) {
             setCurrentProject(findProjectById(projectId))
             setCurrentProjectNumber(displayPositionNumber(index))
+            setTextOpacity(0)
         }
     }
 
@@ -66,13 +69,14 @@ function Projects() {
         return `0${parseInt(index) + 1}.`
     }
 
+
     return (
         <>
             <AnimatedTitle
                 textVariants={[
                     "MES PROJETS",
                     <span key="on-text">
-                        sélectionnez un projet avec les <span style={{ color: "#467536" }}>roues</span>
+                        sélectionnez un projet avec les <span style={{ color: "#A22C29" }}>roues</span>
                     </span>
                 ]}
                 avatarPaths={["assets/png/avatars/avatar_open_eyes.png",
@@ -88,6 +92,7 @@ function Projects() {
                                 const newActiveStates = activeCogwheelStates.map((_state, i) => i === index)
                                 setActiveCogwheelStates(newActiveStates)
                                 handleSwapCurrentProject(project.id, index.toString())
+                                setTextOpacity(1)
                             }}
                             key={project.id}
                         />
@@ -101,13 +106,14 @@ function Projects() {
                 <ProjectImgLink
                     href={currentProject?.liveDemo} target="blank"
                 >
-                    <ProjectImg src={currentProject?.imagePath} />
+                    <ProjectImg alt={currentProject?.name} src={currentProject?.imagePath} />
                 </ProjectImgLink>
                 <ProjectInfos>
                     <ProjectTechnosContainer>
-                        {/* need to map here */}
-                        <ProjectTechno src="assets/technos/typescript.png" />
-                        <ProjectTechno src="assets/technos/css.png" />
+                        {currentProject?.technos.map((techUrl) => {
+                            const technoName = techUrl.split("/").pop()?.replace(".png", "")
+                            return <ProjectTechno src={techUrl} key={technoName} alt={technoName} />
+                        })}
                     </ProjectTechnosContainer>
                     <ButtonContainer>
                         <Button
@@ -125,7 +131,12 @@ function Projects() {
                     </ButtonContainer>
                 </ProjectInfos>
             </ProjectHeader >
-            <ProjectDesc>
+            <ProjectDesc
+                key={currentProject?.text}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: textOpacity }}
+                transition={{ duration: 0.4 }}
+            >
                 {currentProject?.text}
             </ProjectDesc>
         </>

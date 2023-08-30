@@ -7,7 +7,6 @@ const Cogwheel = styled.img`
 
 export const AnimatedTitleContainer = styled.div`
     width: 100%;
-    /* margin: auto; */
     display: flex;
     gap: 5%;
     justify-content: center;
@@ -59,6 +58,7 @@ export const Title = motion(styled.h1`
 
     @media (max-width: 500px) {
         font-size: 1em;
+        letter-spacing: unset;
     }
 
     @media (max-width: 375px) {

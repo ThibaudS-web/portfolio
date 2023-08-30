@@ -7,9 +7,11 @@ const useProjectsData = () => {
     const [error, setError] = useState<Error | null>(null)
 
     useEffect(() => {
+        const urlPath = "data/projects.json"
+        
         const fetchData = async () => {
             try {
-                const response = await fetch("data/projects.json")
+                const response = await fetch(urlPath)
                 if (!response.ok) {
                     throw new Error('Network response was not ok')
                 }
