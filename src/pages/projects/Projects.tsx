@@ -12,14 +12,15 @@ import {
     ButtonContainer,
     ProjectImgLink,
     HandleProjectsContainer,
-    CogwheelCTAContainer
+    CogwheelCTAContainer,
+    ProjectNumber
 } from "./projectsStyle"
 import Button from "../../components/button/Button"
 import GithubIcon from "../../components/svg/github-icon/GithubIcon"
 import { TextOnBtn } from "../../components/button/buttonStyle"
 import useProjectsData from "../../hooks/useProjectsData"
 import CogwheelCTA from "../../components/svg/cogwheel-cta/CogwheelCTA"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Project } from "../../props"
 import handleCustomFilter from "../../utils/handleCustomFilter"
 
@@ -30,8 +31,9 @@ function Projects() {
     const [currentProjectNumber, setCurrentProjectNumber] = useState<string>("")
     const [selectedOption, setSelectedOption] = useState<string>("Trier les projets")
     const [activeCogwheelStates, setActiveCogwheelStates] = useState<Array<boolean>>([])
+    //Animation Current project
     const [textOpacity, setTextOpacity] = useState(0)
-
+    const [refreshKey, setRefreshKey] = useState(0)
 
     useEffect(() => {
         const filteredDataByOption = handleCustomFilter(data, selectedOption) || []
@@ -46,6 +48,10 @@ function Projects() {
             setTextOpacity(1)
         }
     }, [data, selectedOption])
+
+    useEffect(() => {
+        setRefreshKey(prevKey => prevKey + 1)
+    }, [currentProject])
 
     console.log(activeCogwheelStates)
     const handleSelectedOption = (selectedOption: string) => {
@@ -67,6 +73,39 @@ function Projects() {
 
     const displayPositionNumber = (index: string) => {
         return `0${parseInt(index) + 1}.`
+    }
+
+    const technosVariants = {
+        visible: (i: number) => ({
+            opacity: 1,
+            scale: [0, 1.2, 1],
+            transition: {
+                type: "spring",
+                stiffness: 200,
+
+                delay: i * 0.2,
+            },
+        }),
+        hidden: { opacity: 0, scale: 0 }
+    }
+
+    const textVariant = {
+        visible: {
+            opacity: 1,
+            translateX: "0px",
+            transition: {
+                stiffness: 80
+            },
+        },
+        hidden: { opacity: 0, translateX: "50px" }
+    }
+
+    const imageVariants = {
+        visible: {
+            opacity: 1,
+            objectPosition: "50% 0%",
+        },
+        hidden: { opacity: 0, objectPosition: "50% 100%"}
     }
 
 
@@ -100,19 +139,42 @@ function Projects() {
                 </CogwheelCTAContainer>
             </HandleProjectsContainer>
             <FullProjectTitle>
-                {currentProjectNumber} <ProjectTitle>{currentProject?.name}</ProjectTitle>
+                <ProjectNumber>{currentProjectNumber}</ProjectNumber>
+                <ProjectTitle
+                    key={currentProject?.name}
+                    variants={textVariant}
+                    animate="visible"
+                    initial="hidden"
+                >
+                    {currentProject?.name}
+                </ProjectTitle>
             </FullProjectTitle>
             <ProjectHeader>
                 <ProjectImgLink
                     href={currentProject?.liveDemo} target="blank"
                 >
-                    <ProjectImg alt={currentProject?.name} src={currentProject?.imagePath} />
+                    <ProjectImg
+                        alt={currentProject?.name}
+                        src={currentProject?.imagePath}
+                        key={currentProject?.imagePath}
+                        variants={imageVariants}
+                        animate="visible"
+                        initial="hidden"
+                    />
                 </ProjectImgLink>
                 <ProjectInfos>
                     <ProjectTechnosContainer>
-                        {currentProject?.technos.map((techUrl) => {
+                        {currentProject?.technos.map((techUrl, index) => {
                             const technoName = techUrl.split("/").pop()?.replace(".png", "")
-                            return <ProjectTechno src={techUrl} key={technoName} alt={technoName} />
+                            return <ProjectTechno
+                                custom={index}
+                                variants={technosVariants}
+                                animate="visible"
+                                initial="hidden"
+                                src={techUrl}
+                                key={`${technoName}-${refreshKey}`}
+                                alt={technoName}
+                            />
                         })}
                     </ProjectTechnosContainer>
                     <ButtonContainer>

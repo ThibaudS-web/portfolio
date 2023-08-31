@@ -66,9 +66,15 @@ export const FullProjectTitle = styled.h1`
     }
 
 `
-export const ProjectTitle = styled.span`
+export const ProjectTitle = motion(styled.span`
     color: #F3A712;
-`
+    display: inline-block;
+`)
+
+export const ProjectNumber = motion(styled.span`
+    margin-right: 10px;
+`)
+
 export const ProjectHeader = styled.div`
     width: 100%;
     display: flex;
@@ -85,9 +91,9 @@ export const ProjectHeader = styled.div`
     }
 `
 export const ProjectImgLink = styled.a`
-    width: 450px;
+    width: 550px;
     min-width: 260px;
-    min-height: 210px;   
+    /* min-height: 210px;    */
     height: 350px;
     cursor: pointer;
     border-radius: 10px;
@@ -114,10 +120,6 @@ export const ProjectImgLink = styled.a`
         opacity: 0.8;
     }
 
-    @media (min-width: 1440px) {
-        width: 40%;
-    }
-
     @media (max-width: 768px) {
         width: 100%;
         max-height: 300px;
@@ -125,7 +127,8 @@ export const ProjectImgLink = styled.a`
 
     @media (max-width: 425px) {
         width: 85%;
-        max-height: 220px;
+        max-width: 300px;
+        max-height: 200px;
     }
 `
 export const ProjectInfos = styled.div`
@@ -137,22 +140,27 @@ export const ProjectInfos = styled.div`
         width: 100%;
     }
 `
-export const ProjectImg = styled.img`
+export const ProjectImg = motion(styled.img`
     object-fit: cover;
+    object-position: top; 
     border-radius: 10px;
     width: 100%;
     height: 100%;
-    object-position: top;   
-`
-export const ProjectTechno = styled.img`
+`)
+export const ProjectTechno = motion(styled.img`
     width: 70px;
     height: 70px;
 
     @media (max-width: 768px) {
+        width: 60px;
+        height: 60px;
+    }
+
+    @media (max-width: 500px) {
         width: 50px;
         height: 50px;
     }
-`
+`)
 export const ProjectTechnosContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
