@@ -7,7 +7,6 @@ import {
     ProjectImg,
     ProjectDesc,
     ProjectTechnosContainer,
-    ProjectTechno,
     ProjectInfos,
     ButtonContainer,
     ProjectImgLink,
@@ -18,12 +17,14 @@ import {
 import Button from "../../components/button/Button"
 import GithubIcon from "../../components/svg/github-icon/GithubIcon"
 import { TextOnBtn } from "../../components/button/buttonStyle"
-import useProjectsData from "../../hooks/useProjectsData"
+import useProjectsData from "../../hooks/services/useProjectsData"
 import CogwheelCTA from "../../components/svg/cogwheel-cta/CogwheelCTA"
 import { useEffect, useState } from "react"
 import { Project } from "../../props"
 import handleCustomFilter from "../../utils/handleCustomFilter"
-import { delay, motion } from "framer-motion"
+import useProjectAnimation from "../../hooks/project-animation/useProjectTitleAnimation"
+import useProjectTechnosAnimation from "../../hooks/project-animation/useProjectTechnosAnimation"
+import useProjectGlobalAnimation from "../../hooks/project-animation/useProjectGlobalAnimation"
 
 function Projects() {
     const { data } = useProjectsData()
@@ -32,10 +33,11 @@ function Projects() {
     const [currentProjectNumber, setCurrentProjectNumber] = useState<string>("")
     const [selectedOption, setSelectedOption] = useState<string>("Trier les projets")
     const [activeCogwheelStates, setActiveCogwheelStates] = useState<Array<boolean>>([])
-    //Animation Current project
-    const [refreshKey, setRefreshKey] = useState(0)
-    const [text, setText] = useState<Array<JSX.Element>>([])
 
+    const { title, displayTitleAnimation } = useProjectAnimation(currentProject)
+    const { technos, displayTechnosAnimation } = useProjectTechnosAnimation(currentProject)
+    const { textVariant, imageVariants } = useProjectGlobalAnimation()
+    
     useEffect(() => {
         const filteredDataByOption = handleCustomFilter(data, selectedOption) || []
         setDatafiltered(filteredDataByOption)
@@ -50,24 +52,8 @@ function Projects() {
     }, [data, selectedOption])
 
     useEffect(() => {
-        setRefreshKey(prevKey => prevKey + 1)
-
-        if (currentProject) {
-            let textAnimate = currentProject?.name.split("").map((char, index) => {
-                return <motion.span
-                    animate="visible"
-                    initial="hidden"
-                    custom={index}
-                    key={index}
-                    variants={letterVariants}
-                >
-                    {char.trim().length === 0 ? <span>&nbsp;</span> : char}
-                </motion.span>
-            })
-
-            setText(textAnimate)
-        }
-
+        displayTitleAnimation()
+        displayTechnosAnimation()
     }, [currentProject])
 
     const handleSelectedOption = (selectedOption: string) => {
@@ -89,51 +75,6 @@ function Projects() {
     const displayPositionNumber = (index: string) => {
         return `0${parseInt(index) + 1}.`
     }
-
-    const technosVariants = {
-        visible: (i: number) => ({
-            opacity: 1,
-            scale: [0, 1.2, 1],
-            transition: {
-                type: "spring",
-                stiffness: 200,
-                delay: i * 0.2,
-            }
-        }),
-        hidden: { opacity: 0, scale: 0 }
-    }
-
-    const letterVariants = {
-        visible: (i: number) => ({
-            opacity: 1,
-            letterSpacing: "0.1rem",
-            color: ["#A22C29", "#F3A712", "#A22C29", "#F3A712"],
-            transition: {
-                delay: i * 0.050
-            }
-        }),
-        hidden: { opacity: 0, letterSpacing: "-1.5rem" }
-    }
-
-    const textVariant = {
-        visible: {
-            opacity: 1,
-            transition: {
-                duration: 0.7,
-                stiffness: 80
-            }
-        },
-        hidden: { opacity: 0 }
-    }
-
-    const imageVariants = {
-        visible: {
-            opacity: 1,
-            objectPosition: "50% 0%"
-        },
-        hidden: { opacity: 0, objectPosition: "50% 100%" }
-    }
-
 
     return (
         <>
@@ -168,7 +109,7 @@ function Projects() {
                 <ProjectTitle
                     key={currentProject?.name}
                 >
-                    {text}
+                    {title}
                 </ProjectTitle>
             </FullProjectTitle>
             <ProjectHeader>
@@ -187,18 +128,7 @@ function Projects() {
                 </ProjectImgLink>
                 <ProjectInfos>
                     <ProjectTechnosContainer>
-                        {currentProject?.technos.map((techUrl, index) => {
-                            const technoName = techUrl.split("/").pop()?.replace(".png", "")
-                            return <ProjectTechno
-                                custom={index}
-                                variants={technosVariants}
-                                animate="visible"
-                                initial="hidden"
-                                src={techUrl}
-                                key={`${technoName}-${refreshKey}`}
-                                alt={technoName}
-                            />
-                        })}
+                        {technos}
                     </ProjectTechnosContainer>
                     <ButtonContainer>
                         <Button

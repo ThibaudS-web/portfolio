@@ -12,9 +12,9 @@ import {
     LeftYellowCogwheel,
 } from "./animatedTitleStyle"
 import { AnimatedHeadProps } from "../../props"
-import useCogwheelAnimation from "../../hooks/title-animation-hooks/useCogwheelAnimation"
-import useTitleAnimation from "../../hooks/title-animation-hooks/useTitleAnimation"
-import useAvatarAnimation from "../../hooks/title-animation-hooks/useAvatarAnimation"
+import useCogwheelAnimation from "../../hooks/title-animation/useCogwheelAnimation"
+import useTitleAnimation from "../../hooks/title-animation/useTitleAnimation"
+import useAvatarAnimation from "../../hooks/title-animation/useAvatarAnimation"
 
 function AnimatedTitle(props: AnimatedHeadProps) {
     const { textVariants, avatarPaths } = props

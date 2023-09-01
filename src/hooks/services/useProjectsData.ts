@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Projects } from '../props';
+import { Projects } from '../../props';
 
 const useProjectsData = () => {
     const [data, setData] = useState<null | Projects>(null)
@@ -8,7 +8,7 @@ const useProjectsData = () => {
 
     useEffect(() => {
         const urlPath = "data/projects.json"
-        
+
         const fetchData = async () => {
             try {
                 const response = await fetch(urlPath)
