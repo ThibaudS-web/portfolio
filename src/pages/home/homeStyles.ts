@@ -9,7 +9,6 @@ export const TextInfo = styled.p`
 
     @media (max-width: 1440px) {
         padding: 2rem 5.5rem;
-        margin: 2rem 0; 
     }
 
     @media (max-width: 1024px) {

@@ -1,7 +1,6 @@
 import { keyframes, styled, css } from "styled-components";
 import { NavLink } from 'react-router-dom';
 
-
 const rotate = keyframes`
     0% {
         transform: rotate(0deg);
@@ -21,7 +20,7 @@ const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
         animation-play-state: running;
     `}
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1440px) {
         width: 380px;
         top: -10rem;
     }
@@ -44,7 +43,7 @@ const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
 export const LeftCogwheel = styled(GlobalCogwheel)`
     left: -10rem; 
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1440px) {
         left: -8rem; 
     }
 
@@ -63,7 +62,7 @@ export const LeftCogwheel = styled(GlobalCogwheel)`
 export const RightCogwheel = styled(GlobalCogwheel)`
     right: -10rem;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1440px) {
         right: -8rem;
     }
 
@@ -84,7 +83,7 @@ export const Navigation = styled.nav`
     height: 300px;
     position: relative;
     overflow: hidden;
-    @media (max-width: 1024px) {
+    @media (max-width: 1440px) {
         height: 220px;
     }
 
@@ -99,7 +98,7 @@ const NavLinkCustomGlobal = css`
     position: absolute;
     top: 2rem;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1440px) {
         font-size: 2rem;
     }
 
@@ -121,7 +120,7 @@ export const StyledNavLinkHome = styled(NavLink) <{ $hovered: boolean }>`
     ${NavLinkCustomGlobal}
     left: 2.8rem;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1440px) {
          left: 1.8rem;
     }
     
@@ -133,7 +132,7 @@ export const StyledNavLinkProject = styled(NavLink)`
     ${NavLinkCustomGlobal}
     right: 2.8rem;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1440px) {
       right: 1.8rem;
     }
 

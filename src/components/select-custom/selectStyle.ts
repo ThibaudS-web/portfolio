@@ -6,7 +6,7 @@ export const SelectContainer = motion(styled.div`
     width: 100%;
     max-width: 350px;
     min-width: 250px;
-    font-family: "Inter";
+    font-family: "Inter", sans-serif;
     font-size: 1.2em;
     color: #F5F5F5;
     cursor: pointer;

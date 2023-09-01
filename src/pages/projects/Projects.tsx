@@ -1,5 +1,5 @@
-import AnimatedTitle from "../../components/animated_title/AnimatedTitle"
-import CustomSelect from "../../components/select_project_type/CustomSelect"
+import AnimatedTitle from "../../components/animated-title/AnimatedTitle"
+import CustomSelect from "../../components/select-custom/CustomSelect"
 import {
     FullProjectTitle,
     ProjectHeader,
@@ -20,20 +20,21 @@ import GithubIcon from "../../components/svg/github-icon/GithubIcon"
 import { TextOnBtn } from "../../components/button/buttonStyle"
 import useProjectsData from "../../hooks/useProjectsData"
 import CogwheelCTA from "../../components/svg/cogwheel-cta/CogwheelCTA"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { Project } from "../../props"
 import handleCustomFilter from "../../utils/handleCustomFilter"
+import { delay, motion } from "framer-motion"
 
 function Projects() {
-    const { data, loading, error } = useProjectsData()
+    const { data } = useProjectsData()
     const [dataFiltered, setDatafiltered] = useState<Array<Project>>([])
     const [currentProject, setCurrentProject] = useState<Project | null>(null)
     const [currentProjectNumber, setCurrentProjectNumber] = useState<string>("")
     const [selectedOption, setSelectedOption] = useState<string>("Trier les projets")
     const [activeCogwheelStates, setActiveCogwheelStates] = useState<Array<boolean>>([])
     //Animation Current project
-    const [textOpacity, setTextOpacity] = useState(0)
     const [refreshKey, setRefreshKey] = useState(0)
+    const [text, setText] = useState<Array<JSX.Element>>([])
 
     useEffect(() => {
         const filteredDataByOption = handleCustomFilter(data, selectedOption) || []
@@ -45,15 +46,30 @@ function Projects() {
             setActiveCogwheelStates(initialActiveStates)
             setCurrentProject(filteredDataByOption[0])
             setCurrentProjectNumber(displayPositionNumber("0"))
-            setTextOpacity(1)
         }
     }, [data, selectedOption])
 
     useEffect(() => {
         setRefreshKey(prevKey => prevKey + 1)
+
+        if (currentProject) {
+            let textAnimate = currentProject?.name.split("").map((char, index) => {
+                return <motion.span
+                    animate="visible"
+                    initial="hidden"
+                    custom={index}
+                    key={index}
+                    variants={letterVariants}
+                >
+                    {char.trim().length === 0 ? <span>&nbsp;</span> : char}
+                </motion.span>
+            })
+
+            setText(textAnimate)
+        }
+
     }, [currentProject])
 
-    console.log(activeCogwheelStates)
     const handleSelectedOption = (selectedOption: string) => {
         setSelectedOption(selectedOption)
     }
@@ -67,7 +83,6 @@ function Projects() {
         if (projectId && index) {
             setCurrentProject(findProjectById(projectId))
             setCurrentProjectNumber(displayPositionNumber(index))
-            setTextOpacity(0)
         }
     }
 
@@ -82,30 +97,41 @@ function Projects() {
             transition: {
                 type: "spring",
                 stiffness: 200,
-
                 delay: i * 0.2,
-            },
+            }
         }),
         hidden: { opacity: 0, scale: 0 }
+    }
+
+    const letterVariants = {
+        visible: (i: number) => ({
+            opacity: 1,
+            letterSpacing: "0.1rem",
+            color: ["#A22C29", "#F3A712", "#A22C29", "#F3A712"],
+            transition: {
+                delay: i * 0.050
+            }
+        }),
+        hidden: { opacity: 0, letterSpacing: "-1.5rem" }
     }
 
     const textVariant = {
         visible: {
             opacity: 1,
-            translateX: "0px",
             transition: {
+                duration: 0.7,
                 stiffness: 80
-            },
+            }
         },
-        hidden: { opacity: 0, translateX: "50px" }
+        hidden: { opacity: 0 }
     }
 
     const imageVariants = {
         visible: {
             opacity: 1,
-            objectPosition: "50% 0%",
+            objectPosition: "50% 0%"
         },
-        hidden: { opacity: 0, objectPosition: "50% 100%"}
+        hidden: { opacity: 0, objectPosition: "50% 100%" }
     }
 
 
@@ -118,8 +144,8 @@ function Projects() {
                         sélectionnez un projet avec les <span style={{ color: "#A22C29" }}>roues</span>
                     </span>
                 ]}
-                avatarPaths={["assets/png/avatars/avatar_open_eyes.png",
-                    "assets/png/avatars/avatar_wink.png"]}
+                avatarPaths={["assets/webp/avatars/avatar_open_eyes.webp",
+                    "assets/webp/avatars/avatar_wink.webp"]}
             />
             <HandleProjectsContainer>
                 <CustomSelect handleOption={handleSelectedOption} />
@@ -131,7 +157,6 @@ function Projects() {
                                 const newActiveStates = activeCogwheelStates.map((_state, i) => i === index)
                                 setActiveCogwheelStates(newActiveStates)
                                 handleSwapCurrentProject(project.id, index.toString())
-                                setTextOpacity(1)
                             }}
                             key={project.id}
                         />
@@ -142,11 +167,8 @@ function Projects() {
                 <ProjectNumber>{currentProjectNumber}</ProjectNumber>
                 <ProjectTitle
                     key={currentProject?.name}
-                    variants={textVariant}
-                    animate="visible"
-                    initial="hidden"
                 >
-                    {currentProject?.name}
+                    {text}
                 </ProjectTitle>
             </FullProjectTitle>
             <ProjectHeader>
@@ -154,6 +176,7 @@ function Projects() {
                     href={currentProject?.liveDemo} target="blank"
                 >
                     <ProjectImg
+                        loading="lazy"
                         alt={currentProject?.name}
                         src={currentProject?.imagePath}
                         key={currentProject?.imagePath}
@@ -195,12 +218,12 @@ function Projects() {
             </ProjectHeader >
             <ProjectDesc
                 key={currentProject?.text}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: textOpacity }}
-                transition={{ duration: 0.4 }}
+                animate="visible"
+                initial="hidden"
+                variants={textVariant}
             >
                 {currentProject?.text}
-            </ProjectDesc>
+            </ProjectDesc >
         </>
     )
 }

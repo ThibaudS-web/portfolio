@@ -1,4 +1,4 @@
-import AnimatedTitle from "../../components/animated_title/AnimatedTitle"
+import AnimatedTitle from "../../components/animated-title/AnimatedTitle"
 import {
     ButtonContainer,
     FooterLink,
@@ -30,8 +30,8 @@ function Home() {
                     </span>
                 ]}
                 avatarPaths={[
-                    "assets/png/avatars/avatar_open_eyes.png",
-                    "assets/png/avatars/avatar_wink.png"
+                    "assets/webp/avatars/avatar_open_eyes.webp",
+                    "assets/webp/avatars/avatar_wink.webp"
                 ]}
             />
             <TextInfo>

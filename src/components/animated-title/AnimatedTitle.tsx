@@ -48,27 +48,33 @@ function AnimatedTitle(props: AnimatedHeadProps) {
             <AnimatedTitleContainer>
                 <CogwheelsContainer>
                     <LeftGreyCogwheel
+                        alt="visual animation"
+                        aria-hidden="true"
                         initial="initial"
                         animate="animate"
                         variants={leftCohwheelVariant}
                         transition={transitionOptions}
-                        src="\assets\png\cogwheels\cogwheelb_grey.png"
+                        src="\assets\webp\cogwheels\cogwheelb_grey.webp"
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
                     <LeftRedCogwheel
+                        alt="visual animation"
+                        aria-hidden="true"
                         initial="initial"
                         animate="animate"
                         variants={leftCohwheelVariant}
                         transition={transitionOptions}
-                        src="\assets\png\cogwheels\cogwheelb_red.png"
+                        src="\assets\webp\cogwheels\cogwheelb_red.webp"
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
                     <LeftYellowCogwheel
+                        alt="visual animation"
+                        aria-hidden="true"
                         initial="initial"
                         animate="animate"
                         variants={leftCohwheelVariant}
                         transition={transitionOptions}
-                        src="\assets\png\cogwheels\cogwheelb_yellow.png"
+                        src="\assets\webp\cogwheels\cogwheelb_yellow.webp"
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
                 </CogwheelsContainer>
@@ -83,6 +89,8 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         {textVariants[currentIndexTitle]}
                     </Title>
                     <Avatar
+                        alt="visual animation"
+                        aria-hidden="true"
                         initial="initial"
                         animate="animate"
                         variants={avatarVariants}
@@ -93,27 +101,33 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                 </TitleContainer>
                 <CogwheelsContainer>
                     <RightGreyCogwheel
+                        alt="visual animation"
+                        aria-hidden="true"
                         initial="initial"
                         animate="animate"
                         variants={rightCogwheelVariant}
                         transition={transitionOptions}
-                        src="\assets\png\cogwheels\cogwheelb_grey.png"
+                        src="\assets\webp\cogwheels\cogwheelb_grey.webp"
                         onAnimationComplete={() => handleChangeCogwheelVariants("right")}
                     />
                     <RightRedCogwheel
+                        alt="visual animation"
+                        aria-hidden="true"
                         initial="initial"
                         animate="animate"
                         variants={rightCogwheelVariant}
                         transition={transitionOptions}
-                        src="\assets\png\cogwheels\cogwheelb_red.png"
+                        src="\assets\webp\cogwheels\cogwheelb_red.webp"
                         onAnimationComplete={() => handleChangeCogwheelVariants("right")}
                     />
                     <RightYellowCogwheel
+                        alt="visual animation"
+                        aria-hidden="true"
                         initial="initial"
                         animate="animate"
                         variants={rightCogwheelVariant}
                         transition={transitionOptions}
-                        src="\assets\png\cogwheels\cogwheelb_yellow.png"
+                        src="\assets\webp\cogwheels\cogwheelb_yellow.webp"
                         onAnimationComplete={() => handleChangeCogwheelVariants("right")}
                     />
                 </CogwheelsContainer>

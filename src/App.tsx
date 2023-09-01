@@ -11,10 +11,6 @@ const GlobalStyle = createGlobalStyle`
     user-select: none;
   }
 
-  h1, p {
-    margin: 0;
-  }
-
   p{
     font-family: 'Inter', sans-serif;
   }

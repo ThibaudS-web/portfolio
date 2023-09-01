@@ -21,12 +21,13 @@ export const CogwheelCTAContainer = styled.div`
     flex-wrap: wrap;
 `
 export const FullProjectTitle = styled.h1`
-    font-family: "inter";
+    font-family: 'Inter', sans-serif;
     font-size: 1.5rem;
     padding-left: 1.5rem;
     margin-top: 2.5rem;
     position: relative;
-
+   
+    
     &::after {
         content: "";
         display: inline-block; 
@@ -93,12 +94,11 @@ export const ProjectHeader = styled.div`
 export const ProjectImgLink = styled.a`
     width: 550px;
     min-width: 260px;
-    /* min-height: 210px;    */
     height: 350px;
     cursor: pointer;
     border-radius: 10px;
     position: relative;
-    font-family: "inter";
+    font-family: 'Inter', sans-serif;
     
      &::after {
         content: "Redirection vers la demo";
@@ -178,6 +178,8 @@ export const ProjectDesc = motion(styled.p`
     line-height: 1.8rem;
     margin-top: 2rem;
     font-size: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
 
     @media (max-width: 768px) {
         margin: 2rem 0;
