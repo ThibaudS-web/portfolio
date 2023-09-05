@@ -35,7 +35,7 @@ const useTitleAnimation = () => {
         setTitleKey((prevValue) => prevValue + 1)
     }
 
-    return { titleVariants, handleChangeTitleVariants, currentIndexTitle }
+    return { titleVariants, handleChangeTitleVariants, currentIndexTitle, setTitleVariants }
 
 }
 

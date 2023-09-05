@@ -59,13 +59,6 @@ export const FullProjectTitle = styled.h1`
         padding-left: 2rem;
         margin-top: 1rem;
     }
-        
-    @media (max-width: 320px) {
-        font-size: 1.2rem;
-        padding: unset;
-        text-align: center;
-    }
-
 `
 export const ProjectTitle = motion(styled.span`
     color: #F3A712;
@@ -168,7 +161,7 @@ export const ProjectTechnosContainer = styled.div`
 
     @media (max-width: 425px) {
         gap: 1rem;
-        justify-content: flex-start;
+        justify-content: center;
         padding: 0 1rem;
     }
 `

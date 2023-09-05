@@ -34,10 +34,10 @@ function Projects() {
     const [selectedOption, setSelectedOption] = useState<string>("Trier les projets")
     const [activeCogwheelStates, setActiveCogwheelStates] = useState<Array<boolean>>([])
 
+    const { textVariant, imageVariants } = useProjectGlobalAnimation()
     const { title, displayTitleAnimation } = useProjectAnimation(currentProject)
     const { technos, displayTechnosAnimation } = useProjectTechnosAnimation(currentProject)
-    const { textVariant, imageVariants } = useProjectGlobalAnimation()
-    
+
     useEffect(() => {
         const filteredDataByOption = handleCustomFilter(data, selectedOption) || []
         setDatafiltered(filteredDataByOption)

@@ -15,9 +15,19 @@ import { AnimatedHeadProps } from "../../props"
 import useCogwheelAnimation from "../../hooks/title-animation/useCogwheelAnimation"
 import useTitleAnimation from "../../hooks/title-animation/useTitleAnimation"
 import useAvatarAnimation from "../../hooks/title-animation/useAvatarAnimation"
+import { useEffect, useState } from "react"
 
 function AnimatedTitle(props: AnimatedHeadProps) {
     const { textVariants, avatarPaths } = props
+    const [isAvatarDisplay, setIsAvatarDisplay] = useState(true)
+
+    const handleAvatarDisplay = () => {
+        if (innerWidth <= 500) {
+            setIsAvatarDisplay(false)
+        } else {
+            setIsAvatarDisplay(true)
+        }
+    }
 
     const transitionOptions = {
         duration: 3,
@@ -42,13 +52,17 @@ function AnimatedTitle(props: AnimatedHeadProps) {
         currentIndexAvatar
     } = useAvatarAnimation()
 
+    useEffect(() => {
+        handleAvatarDisplay()
+        window.addEventListener('resize', handleAvatarDisplay)
+    }, [isAvatarDisplay])
 
     return (
         <>
             <AnimatedTitleContainer>
                 <CogwheelsContainer>
                     <LeftGreyCogwheel
-                        alt="visual animation"
+                        alt="visual animation cogwheel"
                         aria-hidden="true"
                         initial="initial"
                         animate="animate"
@@ -58,7 +72,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
                     <LeftRedCogwheel
-                        alt="visual animation"
+                        alt="visual animation cogwheel"
                         aria-hidden="true"
                         initial="initial"
                         animate="animate"
@@ -68,7 +82,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
                     <LeftYellowCogwheel
-                        alt="visual animation"
+                        alt="visual animation cogwheel"
                         aria-hidden="true"
                         initial="initial"
                         animate="animate"
@@ -78,8 +92,9 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
                 </CogwheelsContainer>
-                <TitleContainer>
+                <TitleContainer $isAvatarDisplay={isAvatarDisplay}>
                     <Title
+                        $isAvatarDisplay={isAvatarDisplay}
                         initial="initial"
                         animate="animate"
                         variants={titleVariants}
@@ -89,7 +104,8 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         {textVariants[currentIndexTitle]}
                     </Title>
                     <Avatar
-                        alt="visual animation"
+                        $isAvatarDisplay={isAvatarDisplay}
+                        alt="visual animation avatar"
                         aria-hidden="true"
                         initial="initial"
                         animate="animate"
@@ -98,10 +114,23 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         onAnimationComplete={() => handleChangeAvatarVariants(avatarPaths)}
                         src={`${avatarPaths[currentIndexAvatar]}`}
                     />
+                    {/* {isAvatarDisplay ?
+                        <Avatar
+                            alt="visual animation avatar"
+                            aria-hidden="true"
+                            initial="initial"
+                            animate="animate"
+                            variants={avatarVariants}
+                            transition={transitionOptions}
+                            onAnimationComplete={() => handleChangeAvatarVariants(avatarPaths)}
+                            src={`${avatarPaths[currentIndexAvatar]}`}
+                        /> :
+                        null
+                    } */}
                 </TitleContainer>
                 <CogwheelsContainer>
                     <RightGreyCogwheel
-                        alt="visual animation"
+                        alt="visual animation cogwheel"
                         aria-hidden="true"
                         initial="initial"
                         animate="animate"
@@ -111,7 +140,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         onAnimationComplete={() => handleChangeCogwheelVariants("right")}
                     />
                     <RightRedCogwheel
-                        alt="visual animation"
+                        alt="visual animation cogwheel"
                         aria-hidden="true"
                         initial="initial"
                         animate="animate"
@@ -121,7 +150,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         onAnimationComplete={() => handleChangeCogwheelVariants("right")}
                     />
                     <RightYellowCogwheel
-                        alt="visual animation"
+                        alt="visual animation cogwheel"
                         aria-hidden="true"
                         initial="initial"
                         animate="animate"

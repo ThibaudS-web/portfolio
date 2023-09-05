@@ -29,7 +29,7 @@
     "id": "3",
     "type": "formation",
     "name": "Fisheye",
-    "text": "Développement front from scratch d'une plateform de photographe avec l'utilisation de class et de features comme un slider pour parcourir les photos d'un photographe, le tri de sa galerie par ordre alphabétique, de popularité et de date, la possibilité de like les photos, une formulaire de contact avec validation par regExp. Pour les design pattern j'utilise ici un factory pattern pour la création d'object picture / movie. Pour afficher les données sur le front j'utilise un fichier json pour mock la base de données et ainsi créer un service pour fetch la data.",
+    "text": "Développement front from scratch d'une plateform de photographe avec l'utilisation de class et de features comme un slider pour parcourir les photos d'un photographe, le tri de sa galerie par ordre alphabétique, de popularité et de date, la possibilité de like les photos, une formulaire de contact avec validation par regExp. J'utilise le factory pattern pour la création d'object picture / movie.",
     "github": "https://github.com/ThibaudS-web/Front-End-Fisheye",
     "technos": [
       "assets/webp/technos/javascript.webp",

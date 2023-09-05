@@ -1,4 +1,4 @@
-import { styled } from "styled-components"
+import { css, styled } from "styled-components"
 import { motion } from "framer-motion"
 
 const Cogwheel = styled.img`
@@ -12,7 +12,7 @@ export const AnimatedTitleContainer = styled.div`
     justify-content: center;
 `
 
-export const TitleContainer = styled.div`
+export const TitleContainer = styled.div<{ $isAvatarDisplay: boolean }>`
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -30,8 +30,9 @@ export const TitleContainer = styled.div`
     }
 
     @media (max-width: 550px) {
+        
         justify-content: unset;
-        flex-direction: column;
+        ${(props) => props.$isAvatarDisplay ? css` flex-direction: column;` : null}
         line-height: 1.5em;
     }
 
@@ -40,16 +41,18 @@ export const TitleContainer = styled.div`
     }
 `
 
-export const Title = motion(styled.h1`
+export const Title = motion(styled.h1<{ $isAvatarDisplay: boolean }>`
     letter-spacing: 0.1rem;
     font-size: 2.5em;
+    text-align: ${(props => props.$isAvatarDisplay ? "unset" : "center")};
+    margin: ${(props => props.$isAvatarDisplay ? "unset" : "auto")};
 
     @media (max-width: 1100px) {
         font-size: 2em;
     }
 
     @media (max-width: 1024px) {
-        font-size: 1.6em;
+        font-size: 1.8em;
     }
 
     @media (max-width: 850px) {
@@ -57,17 +60,17 @@ export const Title = motion(styled.h1`
     }
 
     @media (max-width: 500px) {
-        font-size: 1em;
-        letter-spacing: unset;
+        font-size: 1.2em;
     }
 
     @media (max-width: 375px) {
-        font-size: 0.9em;
+        font-size: 1em;
     }
 `)
 
-export const Avatar = motion(styled.img`
+export const Avatar = motion(styled.img<{ $isAvatarDisplay: boolean }>`
     width: 140px;
+    display: ${(props) => props.$isAvatarDisplay ? "block" : "none"};
 
     @media (max-width: 1100px) {
         width: 120px;
@@ -102,7 +105,7 @@ export const RightGreyCogwheel = motion(styled(Cogwheel)`
     }
 
     @media (max-width: 325px) {  
-        bottom: 30%;
+        bottom: 20%;
     }
 `)
 
@@ -111,12 +114,13 @@ export const RightRedCogwheel = motion(styled(Cogwheel)`
     left: 0;
     top:  5%;
 
-    @media (max-width: 325px) {  
-        top: 0;
+    @media (max-width: 375px) {  
+        top: 10%;
     }
 
     @media (max-width: 325px) {  
-       left: 5%;
+        top: 20%;
+        left: 5%;
     }
 `)
 
@@ -130,11 +134,7 @@ export const RightYellowCogwheel = motion(styled(Cogwheel)`
     }
 
     @media (max-width: 375px) {  
-        bottom: 30%;
-    }
-
-    @media (max-width: 320px) {  
-        bottom: 45%;
+        bottom: 25%;
     }
 `)
 
@@ -153,7 +153,7 @@ export const LeftGreyCogwheel = motion(styled(Cogwheel)`
     }
         
     @media (max-width: 325px) {  
-        bottom: 30%;
+        bottom: 20%;
     }
 `)
 
@@ -162,12 +162,13 @@ export const LeftRedCogwheel = motion(styled(Cogwheel)`
     right: 0;
     top:  5%;
 
-    @media (max-width: 325px) {  
-        top: 0;
+    @media (max-width: 375px) {  
+        top: 10%;
     }
-    
+
     @media (max-width: 325px) {  
-       right: 5%;
+        top: 20%;
+        right: 5%;
     }
 `)
 
@@ -181,12 +182,9 @@ export const LeftYellowCogwheel = motion(styled(Cogwheel)`
     }
 
     @media (max-width: 375px) {  
-        bottom: 30%;
+        bottom: 25%;
     }
 
-    @media (max-width: 320px) {  
-        bottom: 45%;
-    }
 `)
 
 export const CogwheelsContainer = styled.div`
