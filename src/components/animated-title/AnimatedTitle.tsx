@@ -114,19 +114,6 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         onAnimationComplete={() => handleChangeAvatarVariants(avatarPaths)}
                         src={`${avatarPaths[currentIndexAvatar]}`}
                     />
-                    {/* {isAvatarDisplay ?
-                        <Avatar
-                            alt="visual animation avatar"
-                            aria-hidden="true"
-                            initial="initial"
-                            animate="animate"
-                            variants={avatarVariants}
-                            transition={transitionOptions}
-                            onAnimationComplete={() => handleChangeAvatarVariants(avatarPaths)}
-                            src={`${avatarPaths[currentIndexAvatar]}`}
-                        /> :
-                        null
-                    } */}
                 </TitleContainer>
                 <CogwheelsContainer>
                     <RightGreyCogwheel
