@@ -25,6 +25,7 @@ import handleCustomFilter from "../../utils/handleCustomFilter"
 import useProjectAnimation from "../../hooks/project-animation/useProjectTitleAnimation"
 import useProjectTechnosAnimation from "../../hooks/project-animation/useProjectTechnosAnimation"
 import useProjectGlobalAnimation from "../../hooks/project-animation/useProjectGlobalAnimation"
+import LiveIcon from "../../components/svg/live-icon/LiveIcon"
 
 function Projects() {
     const { data } = useProjectsData()
@@ -49,6 +50,7 @@ function Projects() {
             setCurrentProject(filteredDataByOption[0])
             setCurrentProjectNumber(displayPositionNumber("0"))
         }
+        
     }, [data, selectedOption])
 
     useEffect(() => {
@@ -140,7 +142,7 @@ function Projects() {
                         <Button
                             link={currentProject?.liveDemo}
                         >
-                            <GithubIcon $isProjectPage />
+                            <LiveIcon $isProjectPage />
                             <TextOnBtn>Demo</TextOnBtn>
                         </Button>
                     </ButtonContainer>

@@ -197,9 +197,9 @@ export const CogwheelsContainer = styled.div`
         height: 200px;
     }
 
-    @media (max-width: 850px) {
-        width: 180px;
-        height: 180px;
+    @media (max-width: 1024px) {
+        width: 175px;
+        height: 175px;
     }
 
     @media (max-width: 700px) {

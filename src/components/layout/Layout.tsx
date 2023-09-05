@@ -5,7 +5,7 @@ function Layout(props: { children: React.ReactNode }) {
 
     return (
         <>
-            <Header />
+            <Header/>
             <BlocPage>
                 {props.children}
             </BlocPage>

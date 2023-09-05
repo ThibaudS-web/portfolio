@@ -14,7 +14,7 @@ const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
     position: absolute;
     top: -14rem;
     transform-origin: center;
-    animation: ${rotate} 5s linear infinite;
+    animation: ${rotate} 8s linear infinite;
     animation-play-state: paused;
     ${props => props.$hovered && css`
         animation-play-state: running;
@@ -83,6 +83,7 @@ export const Navigation = styled.nav`
     height: 300px;
     position: relative;
     overflow: hidden;
+    
     @media (max-width: 1440px) {
         height: 220px;
     }
