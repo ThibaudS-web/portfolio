@@ -1,6 +1,6 @@
 export function handleDownload() {
     const fileName = "cv_saumureau_thibaud.pdf"
-    const filePath = "public\\downloads\\" + fileName
+    const filePath = fileName
     const link = document.createElement("a")
     link.href = filePath
     link.download = fileName
