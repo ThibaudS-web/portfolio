@@ -20,7 +20,7 @@ function AnimatedTitle(props: AnimatedHeadProps) {
     const { textVariants, avatarPaths } = props
 
     const transitionOptions = {
-        duration: 3,
+        duration: 2.5,
         delay: 1.5,
     }
 
