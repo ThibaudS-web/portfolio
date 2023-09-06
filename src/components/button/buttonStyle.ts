@@ -40,6 +40,12 @@ export const Btn = styled.button<{ $homeBtn: boolean }>`
         padding: ${(props) => props.$homeBtn ? "0 2rem" : "0 1rem"};
         height: 40px;
         box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.41);
+
+        &:hover{
+            background-color: unset;
+            color: unset;
+            fill: unset;
+        }
     }
 
     @media (max-width: 350px) {
