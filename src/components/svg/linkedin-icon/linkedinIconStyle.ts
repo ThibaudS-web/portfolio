@@ -8,7 +8,7 @@ export const SVG = styled.svg`
         width: 55px;
     }
 
-    @media (max-width: 425px) {
+    @media (max-width: 500px) {
         width: 40px;
     }
 `;

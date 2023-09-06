@@ -61,6 +61,10 @@ export const FooterLink = styled.div`
 export const SocialLink = styled.a`
     &:hover{
         fill: #F3A712;
+        
+        @media (max-width: 500px) {
+            fill: unset;   
+        }
     }
 `
 export const SocialContainer = styled.div`
