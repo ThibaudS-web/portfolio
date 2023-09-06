@@ -1,22 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     Navigation,
     LeftCogwheel,
     RightCogwheel,
     StyledNavLinkHome,
-    StyledNavLinkProject
+    StyledNavLinkProject,
+    Logo
 } from "./headerStyle"
 
 function Header() {
     const [isHovered, setIsHovered] = useState({ right: false, left: false })
+    const [location, setLocation] = useState(document.location.pathname)
 
-    const handleMouseEnter = (side: string) => {
-        setIsHovered(prevState => ({ ...prevState, [side]: true }))
+    const handleStateActiveLink = (to: string) => {
+        if (to === "/") {
+            setIsHovered({ right: false, left: true })
+        }
+
+        if (to === "/projects") {
+            setIsHovered({ right: true, left: false })
+        }
     }
 
-    const handleMouseLeave = (side: string) => {
-        setIsHovered(prevState => ({ ...prevState, [side]: false }))
-    }
+    useEffect(() => {
+        setLocation(document.location.pathname)
+        handleStateActiveLink(location)
+    }, [location])
 
     return (
         <Navigation>
@@ -27,21 +36,20 @@ function Header() {
             />
             <StyledNavLinkHome
                 $hovered={isHovered.left}
-                onMouseEnter={() => handleMouseEnter('left')}
-                onMouseLeave={() => handleMouseLeave('left')}
+                onClick={() => handleStateActiveLink('/')}
+                // onMouseLeave={() => handleMouseLeave('left')}
                 to='/'
             >
                 ACCUEIL
             </StyledNavLinkHome>
-
+            <Logo src="/assets/png/logo.png" alt="logo site web" />
             <RightCogwheel
                 $hovered={isHovered.right}
                 src="\assets\webp\cogwheels\cogwheel_shadow.webp"
                 alt="Accueil"
             />
             <StyledNavLinkProject
-                onMouseEnter={() => handleMouseEnter('right')}
-                onMouseLeave={() => handleMouseLeave('right')}
+                onClick={() => handleStateActiveLink('/projects')}
                 to='/projects'
             >
                 PROJETS

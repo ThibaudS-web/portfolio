@@ -14,7 +14,7 @@ const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
     position: absolute;
     top: -14rem;
     transform-origin: center;
-    animation: ${rotate} 8s linear infinite;
+    animation: ${rotate} 10s linear infinite;
     animation-play-state: paused;
     ${props => props.$hovered && css`
         animation-play-state: running;
@@ -24,20 +24,9 @@ const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
         width: 380px;
         top: -10rem;
     }
-    
-    @media (max-width: 768px) {
-        width: 300px;
-        top: -7rem;
-    }
 
-    @media (max-width: 425px) {
-        width: 250px;
-        top: -6rem;
-    }
-
-    @media (max-width: 320px) {
-        width: 220px;
-        top: -5.5rem;
+    @media (max-width: 900px) {
+        display: none;
     }
 `
 export const LeftCogwheel = styled(GlobalCogwheel)`
@@ -81,15 +70,20 @@ export const RightCogwheel = styled(GlobalCogwheel)`
 export const Navigation = styled.nav`
     width:100%;
     height: 300px;
-    position: relative;
     overflow: hidden;
+    display: flex; 
+    justify-content: center;
     
     @media (max-width: 1440px) {
         height: 220px;
     }
 
-    @media (max-width: 425px) {
-        height: 160px;
+    @media (max-width: 900px) {
+        height: 150px;
+    }
+
+    @media (max-width: 500px) {
+        height: 100px;
     }
 `
 const NavLinkCustomGlobal = css`
@@ -98,22 +92,26 @@ const NavLinkCustomGlobal = css`
     text-decoration: none;
     position: absolute;
     top: 2rem;
+    
+    &.active {
+        color: #F3A712;
+    }
 
     @media (max-width: 1440px) {
         font-size: 2rem;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+        top: 3rem;
         font-size: 1.6rem;
     }
 
-    @media (max-width: 425px) {
+    @media (max-width: 500px) {
         font-size: 1.4rem;
-        top: 1.5rem;
+        top: 2.5rem;
     }
 
     @media (max-width: 320px) {
-        top: 1.3rem;
         font-size: 1.2rem;
     }
 `
@@ -125,8 +123,12 @@ export const StyledNavLinkHome = styled(NavLink) <{ $hovered: boolean }>`
          left: 1.8rem;
     }
     
-    @media (max-width: 768px) {
-         left: 0.6rem;
+    @media (min-width: 500px) and (max-width: 900px) {
+         left: 2.8rem;
+    }
+
+    @media (max-width: 320px) {
+        left: 1.5rem;
     }
 `
 export const StyledNavLinkProject = styled(NavLink)`
@@ -137,7 +139,32 @@ export const StyledNavLinkProject = styled(NavLink)`
       right: 1.8rem;
     }
 
-    @media (max-width: 768px) {
-        right: 0.6rem;
+    @media (min-width: 500px) and (max-width: 900px) {
+            right: 2.8rem;
+    }
+
+    @media (max-width: 320px) {
+        right: 1.5rem;
+    }
+`
+export const Logo = styled.img`
+    width: 260px;
+    height: 158px;
+    margin-top: 1rem;
+
+    @media (max-width: 1440px) {
+        width: 200px;
+        height: 122px;
+    }
+
+    @media (max-width: 900px) {
+        width: 160px;
+        height: 97px;
+    }
+
+    
+    @media (max-width: 500px) {
+        width: 100px;
+        height: 61px;
     }
 `

@@ -1,4 +1,4 @@
-import { css, styled } from "styled-components"
+import { styled } from "styled-components"
 import { motion } from "framer-motion"
 
 const Cogwheel = styled.img`
@@ -12,7 +12,7 @@ export const AnimatedTitleContainer = styled.div`
     justify-content: center;
 `
 
-export const TitleContainer = styled.div<{ $isAvatarDisplay: boolean }>`
+export const TitleContainer = styled.div`
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -29,10 +29,10 @@ export const TitleContainer = styled.div<{ $isAvatarDisplay: boolean }>`
         width: 35%;
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 500px) {
         
         justify-content: unset;
-        ${(props) => props.$isAvatarDisplay ? css` flex-direction: column;` : null}
+        flex-direction: column;
         line-height: 1.5em;
     }
 
@@ -41,11 +41,9 @@ export const TitleContainer = styled.div<{ $isAvatarDisplay: boolean }>`
     }
 `
 
-export const Title = motion(styled.h1<{ $isAvatarDisplay: boolean }>`
+export const Title = motion(styled.h1`
     letter-spacing: 0.1rem;
     font-size: 2.5em;
-    text-align: ${(props => props.$isAvatarDisplay ? "unset" : "center")};
-    margin: ${(props => props.$isAvatarDisplay ? "unset" : "auto")};
 
     @media (max-width: 1100px) {
         font-size: 2em;
@@ -59,8 +57,10 @@ export const Title = motion(styled.h1<{ $isAvatarDisplay: boolean }>`
         font-size: 1.4em;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 550px) {
         font-size: 1.2em;
+        text-align: center;
+        margin: auto;
     }
 
     @media (max-width: 375px) {
@@ -68,9 +68,9 @@ export const Title = motion(styled.h1<{ $isAvatarDisplay: boolean }>`
     }
 `)
 
-export const Avatar = motion(styled.img<{ $isAvatarDisplay: boolean }>`
+export const Avatar = motion(styled.img`
     width: 140px;
-    display: ${(props) => props.$isAvatarDisplay ? "block" : "none"};
+    display: block;
 
     @media (max-width: 1100px) {
         width: 120px;
@@ -80,12 +80,8 @@ export const Avatar = motion(styled.img<{ $isAvatarDisplay: boolean }>`
         width: 100px;
     }
 
-    @media (max-width: 500px) {
-        width: 60px;
-    }
-
-    @media (max-width: 375px) {
-        width: 45px;
+    @media (max-width: 550px) {
+        display: none;
     }
 `)
 

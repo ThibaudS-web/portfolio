@@ -15,19 +15,9 @@ import { AnimatedHeadProps } from "../../props"
 import useCogwheelAnimation from "../../hooks/title-animation/useCogwheelAnimation"
 import useTitleAnimation from "../../hooks/title-animation/useTitleAnimation"
 import useAvatarAnimation from "../../hooks/title-animation/useAvatarAnimation"
-import { useEffect, useState } from "react"
 
 function AnimatedTitle(props: AnimatedHeadProps) {
     const { textVariants, avatarPaths } = props
-    const [isAvatarDisplay, setIsAvatarDisplay] = useState(true)
-
-    const handleAvatarDisplay = () => {
-        if (innerWidth <= 500) {
-            setIsAvatarDisplay(false)
-        } else {
-            setIsAvatarDisplay(true)
-        }
-    }
 
     const transitionOptions = {
         duration: 3,
@@ -51,11 +41,6 @@ function AnimatedTitle(props: AnimatedHeadProps) {
         handleChangeAvatarVariants,
         currentIndexAvatar
     } = useAvatarAnimation()
-
-    useEffect(() => {
-        handleAvatarDisplay()
-        window.addEventListener('resize', handleAvatarDisplay)
-    }, [isAvatarDisplay])
 
     return (
         <>
@@ -92,9 +77,8 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         onAnimationComplete={() => handleChangeCogwheelVariants('left')}
                     />
                 </CogwheelsContainer>
-                <TitleContainer $isAvatarDisplay={isAvatarDisplay}>
+                <TitleContainer>
                     <Title
-                        $isAvatarDisplay={isAvatarDisplay}
                         initial="initial"
                         animate="animate"
                         variants={titleVariants}
@@ -104,7 +88,6 @@ function AnimatedTitle(props: AnimatedHeadProps) {
                         {textVariants[currentIndexTitle]}
                     </Title>
                     <Avatar
-                        $isAvatarDisplay={isAvatarDisplay}
                         alt="visual animation avatar"
                         aria-hidden="true"
                         initial="initial"

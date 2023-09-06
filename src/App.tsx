@@ -6,7 +6,7 @@ import Layout from './components/layout/Layout';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #F5F5F5;
+    background-color: #F3F3F3;
     font-family:  "Bebas Neue", sans-serif;
     user-select: none;
   }
@@ -17,7 +17,6 @@ const GlobalStyle = createGlobalStyle`
 `
 
 function App() {
-
 
   return (
     <>
