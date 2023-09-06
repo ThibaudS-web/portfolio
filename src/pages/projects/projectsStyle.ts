@@ -111,6 +111,10 @@ export const ProjectImgLink = styled.a`
 
     :hover&::after {  
         opacity: 0.8;
+        
+        @media (max-width: 425px) {
+            opacity: 0;
+        }
     }
 
     @media (max-width: 768px) {
