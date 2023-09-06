@@ -71,6 +71,7 @@ export const Navigation = styled.nav`
     width:100%;
     height: 300px;
     overflow: hidden;
+    position: relative;
     display: flex; 
     justify-content: center;
     

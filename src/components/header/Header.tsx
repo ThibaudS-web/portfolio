@@ -37,7 +37,6 @@ function Header() {
             <StyledNavLinkHome
                 $hovered={isHovered.left}
                 onClick={() => handleStateActiveLink('/')}
-                // onMouseLeave={() => handleMouseLeave('left')}
                 to='/'
             >
                 ACCUEIL
