@@ -10,7 +10,7 @@
       "assets/webp/technos/css.webp"
     ],
     "liveDemo": "https://thibauds-web.github.io/music_sim/",
-    "imagePath": "assets/png/project-pictures/jazzam.png"
+    "imagePath": "assets/webp/project-pictures/jazzam.webp"
   },
   {
     "id": "2",
@@ -23,7 +23,7 @@
       "assets/webp/technos/css.webp"
     ],
     "liveDemo": "https://thibauds-web.github.io/movies_app/",
-    "imagePath": "assets/png/project-pictures/pogflix.png"
+    "imagePath": "assets/webp/project-pictures/pogflix.webp"
   },
   {
     "id": "3",
@@ -36,7 +36,7 @@
       "assets/webp/technos/css.webp"
     ],
     "liveDemo": "https://thibauds-web.github.io/Front-End-Fisheye/index.html",
-    "imagePath": "assets/png/project-pictures/fisheye.png"
+    "imagePath": "assets/webp/project-pictures/fisheye.webp"
   },
   {
     "id": "4",
@@ -49,7 +49,7 @@
       "assets/webp/technos/css.webp"
     ],
     "liveDemo": "https://thibauds-web.github.io/P7_Search_algorithm/",
-    "imagePath": "assets/png/project-pictures/les_petits_plats.png"
+    "imagePath": "assets/webp/project-pictures/les_petits_plats.webp"
   },
   {
     "id": "5",
@@ -62,7 +62,7 @@
       "assets/webp/technos/styled-components.webp"
     ],
     "liveDemo": "https://site-kasa-thibauds-web.vercel.app/",
-    "imagePath": "assets/png/project-pictures/kasa.png"
+    "imagePath": "assets/webp/project-pictures/kasa.webp"
   },
   {
     "id": "6",
@@ -75,7 +75,7 @@
       "assets/webp/technos/styled-components.webp"
     ],
     "liveDemo": "https://board-analytics-thibauds-web.vercel.app/profil/12/",
-    "imagePath": "assets/png/project-pictures/sportsee.png"
+    "imagePath": "assets/webp/project-pictures/sportsee.webp"
   },
   {
     "id": "7",
@@ -90,7 +90,7 @@
       "assets/webp/technos/typescript.webp"
     ],
     "liveDemo": "https://p13-argent-bank-alpha.vercel.app/",
-    "imagePath": "assets/png/project-pictures/argent_bank.png"
+    "imagePath": "assets/webp/project-pictures/argent_bank.webp"
   },
   {
     "id": "8",
@@ -104,6 +104,6 @@
       "assets/webp/technos/typescript.webp"
     ],
     "liveDemo": "https://wealth-health-employee-management.vercel.app/",
-    "imagePath": "assets/png/project-pictures/hrnet.png"
+    "imagePath": "assets/webp/project-pictures/hrnet.webp"
   }
 ]
