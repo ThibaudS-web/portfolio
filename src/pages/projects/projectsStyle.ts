@@ -186,7 +186,8 @@ export const ProjectDesc = motion(styled.p`
     font-size: 1.2rem;
     display: flex;
     flex-wrap: wrap;
-
+    user-select: text;
+    
     @media (max-width: 768px) {
         margin: 2rem 0;
     }
