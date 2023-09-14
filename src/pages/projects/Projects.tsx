@@ -14,9 +14,6 @@ import {
     CogwheelCTAContainer,
     ProjectNumber
 } from "./projectsStyle"
-import Button from "../../components/button/Button"
-import GithubIcon from "../../components/svg/github-icon/GithubIcon"
-import { TextOnBtn } from "../../components/button/buttonStyle"
 import useProjectsData from "../../hooks/services/useProjectsData"
 import CogwheelCTA from "../../components/svg/cogwheel-cta/CogwheelCTA"
 import { useEffect, useState } from "react"
@@ -25,7 +22,8 @@ import handleCustomFilter from "../../utils/handleCustomFilter"
 import useProjectAnimation from "../../hooks/project-animation/useProjectTitleAnimation"
 import useProjectTechnosAnimation from "../../hooks/project-animation/useProjectTechnosAnimation"
 import useProjectGlobalAnimation from "../../hooks/project-animation/useProjectGlobalAnimation"
-import LiveIcon from "../../components/svg/live-icon/LiveIcon"
+
+import ButtonAnimated from "../../components/animated-button/ButtonAnimated"
 
 function Projects() {
     const { data } = useProjectsData()
@@ -50,7 +48,7 @@ function Projects() {
             setCurrentProject(filteredDataByOption[0])
             setCurrentProjectNumber(displayPositionNumber("0"))
         }
-        
+
     }, [data, selectedOption])
 
     useEffect(() => {
@@ -133,18 +131,18 @@ function Projects() {
                         {technos}
                     </ProjectTechnosContainer>
                     <ButtonContainer>
-                        <Button
-                            link={currentProject?.github}
-                        >
-                            <GithubIcon $isProjectPage />
-                            <TextOnBtn>Code</TextOnBtn>
-                        </Button>
-                        <Button
-                            link={currentProject?.liveDemo}
-                        >
-                            <LiveIcon $isProjectPage />
-                            <TextOnBtn>Demo</TextOnBtn>
-                        </Button>
+                        <ButtonAnimated
+                            dataAttrText="CODE"
+                            iconLabel="github"
+                            urlPath={currentProject?.github}
+                        />
+                        <ButtonAnimated
+                            dataAttrText="Accès au site"
+                            text="Live"
+                            bgColor="#A22C29"
+                            textColor="#A22C29"
+                            urlPath={currentProject?.liveDemo}
+                        />
                     </ButtonContainer>
                 </ProjectInfos>
             </ProjectHeader >

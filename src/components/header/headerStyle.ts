@@ -9,6 +9,7 @@ const rotate = keyframes`
         transform: rotate(360deg);
     }
 `
+
 const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
     width: 512px;
     position: absolute;
@@ -29,6 +30,7 @@ const GlobalCogwheel = styled.img<{ $hovered: boolean }>`
         display: none;
     }
 `
+
 export const LeftCogwheel = styled(GlobalCogwheel)`
     left: -10rem; 
 
@@ -48,6 +50,7 @@ export const LeftCogwheel = styled(GlobalCogwheel)`
         left: -5rem;
     }
 `
+
 export const RightCogwheel = styled(GlobalCogwheel)`
     right: -10rem;
 
@@ -67,6 +70,7 @@ export const RightCogwheel = styled(GlobalCogwheel)`
         right: -5rem;
     }
 `
+
 export const Navigation = styled.nav`
     width:100%;
     height: 300px;
@@ -87,6 +91,7 @@ export const Navigation = styled.nav`
         height: 100px;
     }
 `
+
 const NavLinkCustomGlobal = css`
     font-size: 2.5rem;
     color: #000;
@@ -116,6 +121,7 @@ const NavLinkCustomGlobal = css`
         font-size: 1.2rem;
     }
 `
+
 export const StyledNavLinkHome = styled(NavLink) <{ $hovered: boolean }>`
     ${NavLinkCustomGlobal}
     left: 2.8rem;
@@ -132,6 +138,7 @@ export const StyledNavLinkHome = styled(NavLink) <{ $hovered: boolean }>`
         left: 1.5rem;
     }
 `
+
 export const StyledNavLinkProject = styled(NavLink)`
     ${NavLinkCustomGlobal}
     right: 2.8rem;
@@ -148,6 +155,7 @@ export const StyledNavLinkProject = styled(NavLink)`
         right: 1.5rem;
     }
 `
+
 export const Logo = styled.img`
     width: 260px;
     height: 158px;

@@ -15,11 +15,13 @@ export const HandleProjectsContainer = styled.div`
         justify-content: center;
     }
 `
+
 export const CogwheelCTAContainer = styled.div`
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 `
+
 export const FullProjectTitle = styled.h1`
     font-family: 'Inter', sans-serif;
     font-size: 1.5rem;
@@ -60,6 +62,7 @@ export const FullProjectTitle = styled.h1`
         margin-top: 1rem;
     }
 `
+
 export const ProjectTitle = motion(styled.span`
     color: #F3A712;
     display: inline-block;
@@ -84,6 +87,7 @@ export const ProjectHeader = styled.div`
         justify-content: center;
     }
 `
+
 export const ProjectImgLink = styled.a`
     width: 550px;
     min-width: 260px;
@@ -128,6 +132,7 @@ export const ProjectImgLink = styled.a`
         max-height: 200px;
     }
 `
+
 export const ProjectInfos = styled.div`
     display: flex;
     flex-direction: column;
@@ -137,6 +142,7 @@ export const ProjectInfos = styled.div`
         width: 100%;
     }
 `
+
 export const ProjectImg = motion(styled.img`
     object-fit: cover;
     object-position: top; 
@@ -144,6 +150,7 @@ export const ProjectImg = motion(styled.img`
     width: 100%;
     height: 100%;
 `)
+
 export const ProjectTechno = motion(styled.img`
     width: 70px;
     height: 70px;
@@ -158,6 +165,7 @@ export const ProjectTechno = motion(styled.img`
         height: 50px;
     }
 `)
+
 export const ProjectTechnosContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -169,6 +177,7 @@ export const ProjectTechnosContainer = styled.div`
         padding: 0 1rem;
     }
 `
+
 export const ProjectDesc = motion(styled.p`
     text-align: justify;
     width: 100%;
@@ -190,10 +199,11 @@ export const ProjectDesc = motion(styled.p`
         line-height: 2rem;
     }
 `)
+
 export const ButtonContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 
     @media (max-width: 768px) {
         flex-direction: row;
@@ -207,7 +217,5 @@ export const ButtonContainer = styled.div`
     @media (max-width: 350px) {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 1rem;
-
     }
 `
