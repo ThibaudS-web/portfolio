@@ -7,6 +7,7 @@ export const Link = styled.a`
     gap: 10px;
     align-items: center;
 `
+
 export const Btn = styled.button<{ $homeBtn: boolean }>`
     width: fit-content;
     border: 2px solid black;
@@ -49,6 +50,7 @@ export const Btn = styled.button<{ $homeBtn: boolean }>`
         padding: ${(props) => props.$homeBtn ? "0 1rem" : "0 0.5rem"};
     }
 `
+
 export const TextOnBtn = styled.span`
     margin-right: 0.3em;
 `
