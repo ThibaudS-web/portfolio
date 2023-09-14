@@ -1,17 +1,11 @@
 import AnimatedTitle from "../../components/animated-title/AnimatedTitle"
 import {
-    ButtonContainer,
     FooterLink,
     SocialContainer,
-    SocialLink,
     TextInfo
 } from "./homeStyles"
-import GithubIcon from "../../components/svg/github-icon/GithubIcon"
-import LinkedinIcon from "../../components/svg/linkedin-icon/LinkedinIcon"
-import Button from "../../components/button/Button"
-import { TextOnBtn } from "../../components/button/buttonStyle"
-import DownloadIcon from "../../components/svg/download-icon/DownloadIcon"
 import { handleDownload } from "../../utils/handleDownload"
+import ButtonAnimated from "../../components/animated-button/ButtonAnimated"
 
 function Home() {
     return (
@@ -39,28 +33,29 @@ function Home() {
             </TextInfo>
             <FooterLink>
                 <SocialContainer>
-                    <SocialLink
-                        target="blank"
-                        href="https://www.linkedin.com/in/thibaud-s/"
-                    >
-                        <LinkedinIcon />
-                    </SocialLink>
-                    <SocialLink
-                        target="blank"
-                        href="https://github.com/ThibaudS-web"
-                    >
-                        <GithubIcon />
-                    </SocialLink>
+                    <ButtonAnimated
+                        dataAttrText="LINKEDIN"
+                        iconLabel="linkedin"
+                        urlPath="https://www.linkedin.com/in/thibaud-s/"
+                    />
+                    <ButtonAnimated                       
+                        dataAttrText="GITHUB"
+                        iconLabel="github"
+                        urlPath="https://github.com/ThibaudS-web"
+                    />
+                    <ButtonAnimated
+                        dataAttrText="EMAIL"
+                        iconLabel="envelope"
+                        urlPath="mailto:thibaud.prodev@gmail.com"
+                    />
                 </SocialContainer>
-                <ButtonContainer>
-                    <Button homeBtn link="mailto:thibaud.prodev@gmail.com">
-                        CONTACTEZ MOI !
-                    </Button>
-                    <Button homeBtn onClick={handleDownload}>
-                        <TextOnBtn>CV</TextOnBtn>
-                        <DownloadIcon />
-                    </Button>
-                </ButtonContainer>
+                <ButtonAnimated
+                    dataAttrText="UPLOAD"
+                    text="CV"
+                    onClick={handleDownload}
+                    bgColor="#A22C29"
+                    textColor="#A22C29"
+                />
             </FooterLink>
         </>
     )

@@ -4,6 +4,7 @@ import Home from './pages/home/Home';
 import Projects from './pages/projects/Projects';
 import Layout from './components/layout/Layout';
 
+
 const GlobalStyle = createGlobalStyle`
   body {
     background-color: #F3F3F3;
@@ -20,16 +21,15 @@ function App() {
 
   return (
     <>
-      <GlobalStyle />
-      <BrowserRouter basename="/">
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path='/projects' element={<Projects />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-
+        <GlobalStyle />
+        <BrowserRouter basename="/">
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path='/projects' element={<Projects />} />
+            </Routes>
+          </Layout>
+        </BrowserRouter>
     </>
   )
 }

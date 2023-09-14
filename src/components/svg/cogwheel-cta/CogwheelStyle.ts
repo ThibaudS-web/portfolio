@@ -20,8 +20,8 @@ export const SVG = styled.svg<{ $isActive: boolean }>`
         width: 35px;
         height: 35px;
     }
-
 ` 
+
 export const Group = styled.g<{ $isActive: boolean }>`
    fill: ${(props) => props.$isActive ? "#A22C29" : "#000000"};
 `

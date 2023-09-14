@@ -19,6 +19,7 @@ export const TextInfo = styled.p`
 
     @media (max-width: 850px) {
         padding: 0 1rem;
+        margin: 3rem 0 2rem 0;
     }
 
     @media (max-width: 500px) {
@@ -28,6 +29,7 @@ export const TextInfo = styled.p`
         margin: 1rem 0; 
     }
 `
+
 export const FooterLink = styled.div`
     display: flex;
     align-items: center;
@@ -39,25 +41,26 @@ export const FooterLink = styled.div`
         padding: 0 5.5rem;
     }
 
+    @media (max-width: 1200px) {
+        padding: 0 5.5rem;
+        flex-wrap: wrap;
+    }
+
     @media (max-width: 1024px) {
         padding: 0 4rem;
     }
 
     @media (max-width: 850px) {
+        flex-direction: column-reverse;
+        gap: 2rem;
         padding: 0 1rem;
     }
 
     @media (max-width: 540px) {
-        flex-direction: column;
         gap: 1rem;
-        align-items: unset;
-    }
-
-    @media (max-width: 500px) {
-        padding: 0 1rem;
-        margin: 2rem 0    
     }
 `
+
 export const SocialLink = styled.a`
     &:hover{
         fill: #F3A712;
@@ -67,33 +70,15 @@ export const SocialLink = styled.a`
         }
     }
 `
+
 export const SocialContainer = styled.div`
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
 
-    @media (max-width: 650px) {
-        gap: 2rem;        
-    }
-
-    @media (max-width: 425px) {
-        align-self: center;       
-    }
-`
-export const ButtonContainer = styled.div`
-    display: flex;
-    gap: 4em;
-
-    @media (max-width: 650px) {
-        gap: 2rem;        
-    }
-
-    @media (max-width: 540px) {
-        gap: 1rem;        
-    }
-
-    
-    @media (max-width: 425px) {
-        align-self: center;       
-    }
+    @media (max-width: 850px) {
+        gap: 0.5rem;
+        justify-content: space-around;
+        width: 100%;
+    }    
 `
 
