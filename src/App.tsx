@@ -15,6 +15,10 @@ const GlobalStyle = createGlobalStyle`
   p{
     font-family: 'Inter', sans-serif;
   }
+  
+  * {
+    box-sizing: border-box;
+  }
 `
 
 function App() {
