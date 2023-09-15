@@ -19,7 +19,6 @@ const globalStyleButtonContent = css`
 `
 
 const globalStyleButtonContainer = css`
-    box-sizing: unset;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,6 +124,6 @@ export const AnimatedBackground = styled.span<{ theme: string }>`
     width: 100%;
     height: 100%;
     display: block;
-    transform: translateY(100%);
+    transform: translateY(150%);
     transition: all 250ms ease-in;
 `
