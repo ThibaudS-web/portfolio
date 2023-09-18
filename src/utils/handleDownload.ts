@@ -1,5 +1,5 @@
 export function handleDownload() {
-    const fileName = "cv_saumureau_thibaud.pdf"
+    const fileName = "cv_thibaud_saumureau.pdf"
     const filePath = fileName
     const link = document.createElement("a")
     link.href = filePath
