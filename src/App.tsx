@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components"
 import Home from './pages/home/Home';
 import Projects from './pages/projects/Projects';
 import Layout from './components/layout/Layout';
-
+import { Analytics } from '@vercel/analytics/react'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -25,15 +25,16 @@ function App() {
 
   return (
     <>
-        <GlobalStyle />
-        <BrowserRouter basename="/">
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path='/projects' element={<Projects />} />
-            </Routes>
-          </Layout>
-        </BrowserRouter>
+      <GlobalStyle />
+      <BrowserRouter basename="/">
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path='/projects' element={<Projects />} />
+          </Routes>
+          <Analytics />
+        </Layout>
+      </BrowserRouter>
     </>
   )
 }
