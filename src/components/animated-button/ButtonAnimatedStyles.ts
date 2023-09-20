@@ -26,6 +26,7 @@ const globalStyleButtonContainer = css`
     text-decoration: none;
     text-align: center;
     height: 60px;
+    font-weight: 600;
     width: 150px;
     font-size: 1.2rem;
     position: relative;
