@@ -15,13 +15,15 @@ import { AnimatedHeadProps } from "../../props"
 import useCogwheelAnimation from "../../hooks/title-animation/useCogwheelAnimation"
 import useTitleAnimation from "../../hooks/title-animation/useTitleAnimation"
 import useAvatarAnimation from "../../hooks/title-animation/useAvatarAnimation"
+import { cubicBezier } from "framer-motion"
 
 function AnimatedTitle(props: AnimatedHeadProps) {
     const { textVariants, avatarPaths } = props
 
     const transitionOptions = {
-        duration: 2.5,
+        duration: 2.8,
         delay: 1.5,
+        ease: cubicBezier(.6, .13, .34, 1.01)
     }
 
     const {
