@@ -105,5 +105,19 @@
     ],
     "liveDemo": "https://wealth-health-employee-management.vercel.app/",
     "imagePath": "assets/webp/project-pictures/hrnet.webp"
+  },
+  {
+    "id": "9",
+    "type": "personnel",
+    "name": "Memory Game",
+    "text": "Un petit jeu de mémoire avec la possibilité de jouer en multijoueur (local).",
+    "github": "https://github.com/ThibaudS-web/memory-game",
+    "technos": [
+      "assets/webp/technos/react.webp",
+      "assets/webp/technos/tailwind.webp",
+      "assets/webp/technos/typescript.webp"
+    ],
+    "liveDemo": "https://memory-game-thibauds.vercel.app/",
+    "imagePath": "assets/webp/project-pictures/memory_game.webp"
   }
 ]
